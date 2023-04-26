@@ -2,8 +2,11 @@
 
 Startdocument van **Monique Sabong**, **Yannieck Blaauw** en **Chris Klunder**. 
 
-## Probleem Beschrijving
+## Applicatie Beschrijving
 
+Voor dit project willen wij een race game maken. Het is een single player game, waarbij je één auto kan besturen van links naar rechts.
+Er komen 4 of meerdere wegen naast elkaar waarbij andere auto's oprijden die je moet ontwijken. Het doel van dit spel is om zo ver mogelijk auto's te ontwijken zonder
+een auto aan te rijden of een ander obstakel. Voor dit spel komt er minstens 4 schermen, namelijk de startmenu, de game zelf, een highscore board en een about pagina.
 
 
 ### Input & Output
@@ -16,21 +19,15 @@ In de tabellen hieronder worden alle input beschreven. (De input dat de user moe
 
 |Case|Type|Conditions|
 |----|----|----------|
-|Name of Sportclub|`String`|not empty|
-|Name Of Member|`String` |not empty|
-|DOB of Member|`DateTime` |dd-mm-yyyy|
-|Member since date|`dd:mm:yyyy`|not empty|
-|PlayingMember|`boolean`|not empty|
-|Member ID|`int`|not empty|
+|Name of player|`String`|not empty|
+|Type of car|`Image`| not empty| 
 
 #### Output
 
 |Case|Type|
 |----|----|
-|The cumulative total contribution price|`float`|
-|Youngest member at the sportclub|`String`|
-|The average number of membership years|`int`|
-|Contribution price for a member|`float`|
+|De score aan het einde van de game|`TimeSpan`|
+
 
 
 #### Calculations
@@ -38,8 +35,6 @@ In de tabellen hieronder worden alle input beschreven. (De input dat de user moe
 | Case              | Calculation                        |
 | ----------------- | ---------------------------------- |
 | Total contribution of 1 member | The sum of all the contribution prices of 1 member |
-| Total contribution of all the members in the sportclub|The sum of all the contribution prices of all the members|
-| The 5% discount if a member has a membership longer than 7 years|0.05 x the total contribution price from a member|
 
 #### Remarks
 
@@ -48,8 +43,17 @@ In de tabellen hieronder worden alle input beschreven. (De input dat de user moe
 * Unit Tests will be provided.
 
 ## Lay-out of GUI
+Startmenu van de game
+![GUI](img/race-start.png "First Version of the GUI")
 
-![GUI](img/GUI.png "First Version of the GUI")
+About pagina
+![GUI](img/race-about.png "First Version of the GUI")
+
+Highscore pagina
+![GUI](img/race-highscore.png "First Version of the GUI")
+
+De game zelf
+![GUI](img/race-game.png "First Version of the GUI")
 
 ## Class Diagram
 
@@ -64,11 +68,13 @@ In this section the testcases will be described to test the application.
 In de tabellen hieronder worden de data weergegeven die nodig zijn om de applicatie te testen.
 
 
-#### Sportclub
+#### Player
 
 | ID        | Input                                                        | Code                                               |
 | --------- | ------------------------------------------------------------ | -------------------------------------------------- |
-| `Ice skating club`| name: Ice skating club<br /> | `new Sportclub("Ice skating club")`|
+| `Chris`| name: Chris<br /> | `new Player("Chris")`|
+| `Yannieck`| name: Yannieck<br /> | `new Player("Yannieck")`|
+| `Monique`| name: Monique<br /> | `new Player("Monique")`|
 
 ### Test Cases
 
@@ -83,7 +89,7 @@ Testing the method to check if a member is 18 years or older.
 |1| `Monique1` | `isSenior()` |FALSE|
 |2| `Henry1` | `isSenior()`| TRUE| 
 
-#### #2 Getting the contribution price for one member
+
 
 
 ### User testplan
