@@ -50,6 +50,8 @@ In de tabellen hieronder worden alle input beschreven. (De input dat de user moe
 
 ## Lay-out
 
+De applicatie zal gemaakt worden met .NET MAUI.
+
 Startmenu van de game
 ![GUI](img/race-start.png "First Version of the GUI")
 
@@ -107,21 +109,31 @@ Bij deze test wordt gecontroleerd of de auto in botsing is gekomen met een ander
 | ---- | ---------- | -------------------------- | ---------------- |
 | 1    | naam       | maak een nieuwe speler aan |                  |
 | 2    | afbeelding | maak een nieuwe auto aan   |                  |
-| 3    |            | verplaats speler naar auto | Game over scherm |
+| 3    |            | verplaats speler naar auto | game over scherm |
 
 #### #2 Testen of the speler een nieuwe highscore heeft behaald
 
 Deze test controleert of de speler een nieuwe highscore heeft behaald. Wanneer dit gebeurt, moet de score worden toegevoegd aan het highscore-menu.
 
-#### #3 Testen of de speler de bewegings controls indrukt
+| Step | Input      | Action                              | Expected output  |
+| ---- | ---------- | ----------------------------------- | ---------------- |
+| 1    | naam       | maak een nieuwe speler aan          |                  |
+| 2    | afbeelding | maak een nieuwe auto aan            |                  |
+| 3    | 100        | zet de score van de speler naar 100 |                  |
+| 4    |            | verplaats speler naar auto          | highscore is 100 |
+| 5    | 200        | zet de score van de speler naar 200 |                  |
+| 6    |            | verplaats speler naar auto          | highscore is 200 |
 
-Deze test controleert of de speler de bewegings controls indrukt. Wanneer dit gebeurt, moet de speler naar links of rechts bewegen, afhankelijk van de ingedrukte toets.
+#### #3 Testen of de speler naar links of rechts beweegt
 
-| Step | Input      | Action       | Expected output |
-| ---- | ---------- | ------------ | --------------- |
-| 1    | `Monique1` | `isSenior()` | FALSE           |
-| 2    | `Henry1`   | `isSenior()` | TRUE            |
+Deze test controleert of de speler naar links of rechts beweegd.
+
+| Step | Input | Action                                         | Expected output                        |
+| ---- | ----- | ---------------------------------------------- | -------------------------------------- |
+| 1    | naam  | maak een nieuwe speler aan                     |                                        |
+| 1    |       | roep de `moveLeft()` functie in de speler aan  | de x coordinaat van de speler verlaagd |
+| 1    |       | roep de `moveRight()` functie in de speler aan | de x coordinaat van de speler verhoogd |
 
 ## Literatuurlijst
 
--   <https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-7.0>
+-   Britch, D. Gechev I. jconrey (2023, 30 januari) What is .NET MAUI? Geraadpleegd op 30 april 2023, van <https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-7.0>
