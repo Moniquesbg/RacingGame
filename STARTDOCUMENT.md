@@ -6,7 +6,7 @@ Startdocument van **Monique Sabong**, **Yannieck Blaauw** en **Chris Klunder**.
 
 Voor dit project willen wij een race game maken. Het is een single player game, waarbij je één auto kan besturen van links naar rechts.
 Er komen 4 of meerdere wegen naast elkaar waarbij andere auto's oprijden die je moet ontwijken. Het doel van dit spel is om zo ver mogelijk auto's te ontwijken zonder
-een auto aan te rijden of een ander obstakel. Voor dit spel komt er minstens 4 schermen, namelijk de startmenu, de game zelf, een highscore board en een about pagina.
+een auto aan te rijden of een ander obstakel. Voor dit spel komt er minstens 4 schermen, namelijk de startmenu, de game zelf, een highscore board met de beste tijd en een about pagina.
 
 
 ### Input & Output
@@ -19,22 +19,30 @@ In de tabellen hieronder worden alle input beschreven. (De input dat de user moe
 
 |Case|Type|Conditions|
 |----|----|----------|
-|Name of player|`String`|not empty|
-|Type of car|`Image`| not empty| 
+|Naam speler|`String`|not empty|
+|Type auto|`Image`| not empty| 
+|De keybinds om de auto naar links of naar rechts te laten gaan|`KeyBoardKey`|
 
 #### Output
 
 |Case|Type|
 |----|----|
-|De score aan het einde van de game|`TimeSpan`|
-
-
+|De highscore van de speler|`TimeSpan`|
+|De images van de auto's op de weg|`image`|
+|De gekozen auto van de speler op de weg|`image`|
+|De positie van de speler op de weg|`float`|
+|De positie van de overige auto's op de weg|`float`|
+|De score aan het einde van de game (tijd: HH:MM:SS)|`TimeSpan`|
 
 #### Calculations
 
 | Case              | Calculation                        |
 | ----------------- | ---------------------------------- |
-| Total contribution of 1 member | The sum of all the contribution prices of 1 member |
+| De tijd score van de speler| TimeSpan  |
+| De auto van de speler naar links of recht laten gaan| huidige postitie plus of min de hoeveelheid dat je naar links of recht gaat |
+| Berekenen of de speler een auto heeft geraakt| Checken of de auto van de speler bijna of dezelfde x/y waarde heeft als de auto waar je tegenaan kan botsen |
+| De auto op de weg houden. Niet dat je de auto buiten het scherm komt. | Als de auto van de speler niet kleiner dan of groter dan een bepaalde x waarde komt, dan kan je niet verder naar links of rechts| 
+
 
 #### Remarks
 
