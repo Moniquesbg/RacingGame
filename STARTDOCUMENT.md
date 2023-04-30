@@ -122,6 +122,12 @@ Deze test controleert of de speler de bewegings controls indrukt. Wanneer dit ge
 | 1    | `Monique1` | `isSenior()` | FALSE           |
 | 2    | `Henry1`   | `isSenior()` | TRUE            |
 
+## Planning
+
+Om de voortgang van dit project te bewaken, is er een planning gemaakt. Deze planning bevat in grote lijnen hetgeen waarmee wij ons bezig zullen houden per week tot de deadline. Er kan natuurlijk afgeweken worden van deze planning, maar het is het doel om deze in grote lijnen te volgen.
+
+![Planning](img/planning.png "Project planning")
+
 ## Literatuurlijst
 
 -   <https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-7.0>
