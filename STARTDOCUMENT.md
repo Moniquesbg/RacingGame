@@ -80,9 +80,20 @@ In de tabellen hieronder worden de data weergegeven die nodig zijn om de applica
 
 | ID        | Input                                                        | Code                                               |
 | --------- | ------------------------------------------------------------ | -------------------------------------------------- |
-| `Chris`| name: Chris<br /> | `new Player("Chris")`|
-| `Yannieck`| name: Yannieck<br /> | `new Player("Yannieck")`|
-| `Monique`| name: Monique<br /> | `new Player("Monique")`|
+| `Lightning McQueen`| name: Chris<br /> | `new Player("Lightning McQueen")`|
+
+#### Car
+| ID        | Input                                                        | Code                                               |
+| --------- | ------------------------------------------------------------ | -------------------------------------------------- |
+| `rodeAuto`| rodeAuto.png<br /> | `new Car(image[0])`|
+| `blauweAuto`| blauweAuto.png<br /> | `new Car(image[1])`|
+| `geleAuto`| geleAuto.png<br /> | `new Car(image[2])`|
+| `oranjeAuto`| oranjeAuto.png<br /> | `new Car(image[3])`|
+
+#### Game
+| ID        | Input                                                        | Code                                               |
+| --------- | ------------------------------------------------------------ | -------------------------------------------------- |
+| `raceGame`| name: raceGame<br /> | `new Game(Player lightning McQueen)`|
 
 ### Test Cases
 
