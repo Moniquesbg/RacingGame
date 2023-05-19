@@ -10,7 +10,7 @@ public partial class MainPage : ContentPage
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)
-	{
+	{  
 		count++;
 
 		if (count == 1)
@@ -20,5 +20,10 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+
+	private void goToGame(object sender, EventArgs e)
+	{
+		Application.Current.MainPage = new GamePage();
+    }
 }
 
