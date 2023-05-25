@@ -7,10 +7,5 @@
         <drawable:GameDrawable x:Key="drawable" />
     </ContentPage.Resources>
     <StackLayout >
-        <GraphicsView Drawable="{StaticResource drawable}"
-                      HeightRequest="700"
-                      WidthRequest="800"
-                      VerticalOptions="Center"
-                      HorizontalOptions="CenterAndExpand" />
     </StackLayout>
 </ContentPage>
