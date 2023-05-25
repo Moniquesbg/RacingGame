@@ -1,4 +1,4 @@
-﻿namespace RacingGame;
+﻿namespace RacingGame2;
 
 public partial class MainPage : ContentPage
 {
