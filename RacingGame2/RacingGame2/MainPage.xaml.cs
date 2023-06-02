@@ -1,4 +1,9 @@
-﻿namespace RacingGame2;
+﻿using SharpHook.Native;
+using SharpHook.Reactive;
+using SharpHook;
+using System.Diagnostics;
+
+namespace RacingGame2;
 
 public partial class MainPage : ContentPage
 {

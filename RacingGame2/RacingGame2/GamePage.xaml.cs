@@ -1,5 +1,8 @@
 using System.Diagnostics;
 using RacingGame2.Drawables;
+using SharpHook.Native;
+using SharpHook;
+using SharpHook.Reactive;
 
 namespace RacingGame2;
 
@@ -7,22 +10,27 @@ public partial class GamePage : ContentPage
 {
 	private float aspect = 1.5f;
 	private int screenWidth, screenHeight = 750;
+	private GraphicsView gv;
+	private GameDrawable gd;
 
 	public GamePage()
 	{
 		InitializeComponent();
 
+		var hook = new SimpleReactiveGlobalHook();
+		hook.KeyPressed.Subscribe(e => OnKeyReleased(e, hook));
+		hook.RunAsync();
+
 		screenWidth = (int)(screenHeight / aspect);
 
-		GraphicsView gv = new GraphicsView();
+		gv = new GraphicsView();
 
 		gv.VerticalOptions = LayoutOptions.Start;
 		gv.HorizontalOptions = LayoutOptions.Start;
 		gv.WidthRequest = screenWidth;
 		gv.HeightRequest = screenHeight;
-		gv.Drawable = new GameDrawable();
-
-		getMouseCoord(gv);
+		gd = new GameDrawable((screenWidth / 4f) * 1.5f, screenHeight - 100);
+		gv.Drawable = gd;
 
 		Content = gv;
 	}
@@ -38,32 +46,29 @@ public partial class GamePage : ContentPage
 		Application.Current.MainPage.HeightRequest = screenHeight;
 	}
 
-	void getMouseCoord(View view)
+	void MovePlayer(float x, float y)
 	{
-		DragGestureRecognizer dragGestureRecognizer = new DragGestureRecognizer();
-		PointerGestureRecognizer pointerGestureRecognizer = new PointerGestureRecognizer();
-		Point startPoint, endPoint;
-
-		pointerGestureRecognizer.PointerEntered
-			+= (s, e) =>
-			{
-				startPoint = new Point(e.GetPosition((View)s).Value.X, e.GetPosition((View)s).Value.Y);
-				Trace.WriteLine(startPoint);
-			};
-
-		//dragGestureRecognizer.DragStarting += (sender, eventArgs) =>
-		//{
-
-		//	//Point? relativeToContainerPosition = eventArgs.GetPosition((View)sender);
-		//	eventArgs.Data.Text = "dsadas";
-		//	//point = new Point(relativeToContainerPosition.Value.X, relativeToContainerPosition.Value.Y);
-		//	//Trace.WriteLine(point.ToString());
-		//};
-
-		view.GestureRecognizers.Add(pointerGestureRecognizer);
+		if (gd.GetPlayerPosition().x + x > 0 && gd.GetPlayerPosition().x + x < screenWidth &&
+			gd.GetPlayerPosition().y + y > 0 && gd.GetPlayerPosition().y + y < screenHeight)
+		{
+			gd.UpdatePosition(x, y);
+			gv.Invalidate();
+		}
 	}
 
-	void move(Point point)
+	private void OnKeyReleased(KeyboardHookEventArgs e, IReactiveGlobalHook hook)
 	{
+		if (e.Data.KeyCode == KeyCode.VcD)
+		{
+			Trace.WriteLine("Move Right");
+
+			MovePlayer(10, 0);
+		}
+		else if (e.Data.KeyCode == KeyCode.VcA)
+		{
+			Trace.WriteLine("Move Left");
+
+			MovePlayer(-10, 0);
+		}
 	}
 }

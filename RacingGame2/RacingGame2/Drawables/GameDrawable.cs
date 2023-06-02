@@ -9,6 +9,18 @@ namespace RacingGame2.Drawables
 {
 	internal class GameDrawable : IDrawable
 	{
+		PlayerDrawable pd;
+
+		public GameDrawable()
+		{
+			pd = new PlayerDrawable(0, 0);
+		}
+
+		public GameDrawable(float x, float y)
+		{
+			pd = new PlayerDrawable(x, y);
+		}
+
 		public void Draw(ICanvas canvas, RectF dirtyRect)
 		{
 			float screenWidth = (float)Application.Current.MainPage.Width;
@@ -23,6 +35,18 @@ namespace RacingGame2.Drawables
 			canvas.DrawLine(screenWidth / 4, 0, screenWidth / 4, screenHeight);
 			canvas.DrawLine((screenWidth / 4) * 2, 0, (screenWidth / 4) * 2, screenHeight);
 			canvas.DrawLine((screenWidth / 4) * 3, 0, (screenWidth / 4) * 3, screenHeight);
+
+			pd.Draw(canvas);
+		}
+
+		public Float2 GetPlayerPosition()
+		{
+			return new Float2(pd.x, pd.y);
+		}
+
+		public void UpdatePosition(float x, float y)
+		{
+			pd = new PlayerDrawable(pd.x + x, pd.y + y);
 		}
 	}
 }
