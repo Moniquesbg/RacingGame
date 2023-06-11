@@ -9,9 +9,9 @@ namespace RacingGame2.Drawables
 {
 	internal class GameDrawable : IDrawable
 	{
-		PlayerDrawable pd;
+		public PlayerDrawable pd { get; private set; }
 
-		public GameDrawable()
+        public GameDrawable()
 		{
 			pd = new PlayerDrawable(0, 0);
 		}
@@ -39,9 +39,9 @@ namespace RacingGame2.Drawables
 			pd.Draw(canvas);
 		}
 
-		public Float2 GetPlayerPosition()
+		public Point GetPlayerPosition()
 		{
-			return new Float2(pd.x, pd.y);
+			return new Point(pd.x, pd.y);
 		}
 
 		public void UpdatePosition(float x, float y)

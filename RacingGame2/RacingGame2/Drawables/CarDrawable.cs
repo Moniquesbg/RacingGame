@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace RacingGame2.Drawables
 {
-	internal class PlayerDrawable
-	{
+	internal class CarDrawable
+    {
 		public float x, y;
 		private float w = 75, h = 100;
 
-		public PlayerDrawable()
+		public CarDrawable()
 		{
 			this.x = 0;
 			this.y = 0;
 		}
 
-		public PlayerDrawable(float x, float y)
+		public CarDrawable(float x, float y)
 		{
 			this.x = x;
 			this.y += y;

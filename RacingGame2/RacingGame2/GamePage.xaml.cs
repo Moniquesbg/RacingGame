@@ -12,6 +12,7 @@ public partial class GamePage : ContentPage
 	private int screenWidth, screenHeight = 750;
 	private GraphicsView gv;
 	private GameDrawable gd;
+	private float playerSpeed = 20;
 
 	public GamePage()
 	{
@@ -48,8 +49,11 @@ public partial class GamePage : ContentPage
 
 	void MovePlayer(float x, float y)
 	{
-		if (gd.GetPlayerPosition().x + x > 0 && gd.GetPlayerPosition().x + x < screenWidth &&
-			gd.GetPlayerPosition().y + y > 0 && gd.GetPlayerPosition().y + y < screenHeight)
+		float hw = gd.pd.getWidth() / 2;
+		float hh = gd.pd.getHeight() / 2;
+
+        if (gd.GetPlayerPosition().X + x > hw && gd.GetPlayerPosition().X + x < screenWidth - hw &&
+			gd.GetPlayerPosition().Y + y > hh && gd.GetPlayerPosition().Y + y < screenHeight - hh)
 		{
 			gd.UpdatePosition(x, y);
 			gv.Invalidate();
@@ -62,13 +66,13 @@ public partial class GamePage : ContentPage
 		{
 			Trace.WriteLine("Move Right");
 
-			MovePlayer(10, 0);
+			MovePlayer(playerSpeed, 0);
 		}
 		else if (e.Data.KeyCode == KeyCode.VcA)
 		{
 			Trace.WriteLine("Move Left");
 
-			MovePlayer(-10, 0);
+			MovePlayer(-playerSpeed, 0);
 		}
 	}
 }
