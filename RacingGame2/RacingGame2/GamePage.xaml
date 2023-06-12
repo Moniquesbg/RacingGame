@@ -4,7 +4,7 @@
              x:Class="RacingGame2.GamePage"
              xmlns:drawable="clr-namespace:RacingGame2.Drawables">
     <ContentPage.Resources>
-        <drawable:GameDrawable x:Key="drawable" />
+        
     </ContentPage.Resources>
     <StackLayout >
     </StackLayout>

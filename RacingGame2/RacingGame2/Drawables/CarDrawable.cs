@@ -7,32 +7,38 @@ using System.Threading.Tasks;
 
 namespace RacingGame2.Drawables
 {
-	internal class CarDrawable
+    internal class CarDrawable
     {
-		public float x, y;
-		private float w = 75, h = 100;
+        public float x, y;
 
-		public CarDrawable()
-		{
-			this.x = 0;
-			this.y = 0;
-		}
+        public float w { get; private set; } = 75;
+        public float h { get; private set; } = 100;
+        public Color color { get; private set; }
 
-		public CarDrawable(float x, float y)
-		{
-			this.x = x;
-			this.y += y;
-		}
+        public CarDrawable(float x, float y)
+        {
+            this.x = x;
+            this.y += y;
+            color = GetRandomColor();
+        }
 
-		public void Draw(ICanvas canvas)
-		{
-			Trace.WriteLine(x);
-			Trace.WriteLine(y);
-			canvas.FillColor = new Color(1f, 0f, 0f);
-			canvas.FillRectangle(x - w / 2f, y - h / 2f, w, h);
-		}
+        public CarDrawable(float x, float y, Color color)
+        {
+            this.x = x;
+            this.y += y;
+            this.color = color;
+        }
 
-		public float getWidth() { return w; }
-		public float getHeight() { return h; }
+        public void Draw(ICanvas canvas)
+        {
+            canvas.FillColor = color;
+            canvas.FillRectangle(x - w / 2f, y - h / 2f, w, h);
+        }
+
+        private Color GetRandomColor()
+        {
+            var random = new Random();
+            return new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
+        }
     }
 }

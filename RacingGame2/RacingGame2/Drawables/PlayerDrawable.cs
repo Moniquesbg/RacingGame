@@ -26,8 +26,6 @@ namespace RacingGame2.Drawables
 
 		public void Draw(ICanvas canvas)
 		{
-			Trace.WriteLine(x);
-			Trace.WriteLine(y);
 			canvas.FillColor = new Color(1f, 0f, 0f);
 			canvas.FillRectangle(x - w / 2f, y - h / 2f, w, h);
 		}
