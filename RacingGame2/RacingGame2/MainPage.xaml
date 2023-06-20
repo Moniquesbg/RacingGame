@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RacingGame2.MainPage"
-             BackgroundColor="LightGray">
+             BackgroundColor="DarkGray">
 
     <ScrollView>
         <VerticalStackLayout
@@ -15,6 +15,7 @@
             TextColor="Black"
             SemanticProperties.HeadingLevel="Level1"
             FontSize="32"
+            FontAttributes="Bold"
             HorizontalOptions="Center" />
 
             <Grid HorizontalOptions="Center">
@@ -23,6 +24,8 @@
                 </Grid.ColumnDefinitions>
                 <Entry x:Name="entry"
                 Placeholder="Player name"
+                PlaceholderColor="Black"
+                BackgroundColor="White" 
                 HorizontalOptions="FillAndExpand"
                 Grid.Column="0" />
             </Grid>
