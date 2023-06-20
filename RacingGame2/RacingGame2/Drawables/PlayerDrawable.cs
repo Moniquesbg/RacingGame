@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RacingGame2.Drawables
+﻿namespace RacingGame2.Drawables
 {
 	internal class PlayerDrawable
 	{
 		public float x, y;
-		private float w = 75, h = 100;
+        public float w { get; private set; } = 75;
+        public float h { get; private set; } = 100;
 
-		public PlayerDrawable()
+        public PlayerDrawable()
 		{
 			this.x = 0;
 			this.y = 0;
@@ -29,8 +23,5 @@ namespace RacingGame2.Drawables
 			canvas.FillColor = new Color(1f, 0f, 0f);
 			canvas.FillRectangle(x - w / 2f, y - h / 2f, w, h);
 		}
-
-		public float getWidth() { return w; }
-		public float getHeight() { return h; }
     }
 }

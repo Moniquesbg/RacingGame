@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using RacingGame2.Drawables;
 using SharpHook.Native;
 using SharpHook;
@@ -56,8 +55,8 @@ public partial class GamePage : ContentPage
 
     void MovePlayer(float x, float y)
     {
-        float hw = gd.pd.getWidth() / 2;
-        float hh = gd.pd.getHeight() / 2;
+        float hw = gd.pd.w / 2;
+        float hh = gd.pd.h / 2;
 
         if (gd.GetPlayerPosition().X + x > hw && gd.GetPlayerPosition().X + x < screenWidth - hw &&
             gd.GetPlayerPosition().Y + y > hh && gd.GetPlayerPosition().Y + y < screenHeight - hh)

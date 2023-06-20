@@ -1,10 +1,4 @@
-﻿using Microsoft.Maui.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace RacingGame2.Drawables
 {
@@ -13,16 +7,17 @@ namespace RacingGame2.Drawables
         public PlayerDrawable pd { get; private set; }
         public CarDrawable[] cars { get; private set; }
 
+        private int carCount = 1;
+
         public GameDrawable(int screenW, float playerX, float playerY)
         {
             pd = new PlayerDrawable(playerX, playerY);
-            cars = new CarDrawable[10];
+            cars = new CarDrawable[carCount];
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < cars.Length; i++)
             {
                 Random rand = new Random();
                 float x = rand.Next(0, 4) * (screenW / 4f) + (screenW / 8f);
-                Trace.WriteLine(x + " / " + screenW);
 
                 float y = rand.Next(0, 1500);
                 y = (float)Math.Round(y / 400);
@@ -49,7 +44,15 @@ namespace RacingGame2.Drawables
 
             for (int i = 0; i < cars.Length; i++)
             {
-                cars[i].Draw(canvas);
+                CarDrawable car = cars[i];
+                car.Draw(canvas);
+
+                bool overlap = isRectangleOverlap(
+                    new Rect(car.x, car.y, car.w, car.h), 
+                    new Rect(pd.x, pd.y, pd.w, pd.h)
+                );
+
+                if (overlap) { Trace.WriteLine(overlap); }
             }
 
             pd.Draw(canvas);
@@ -81,7 +84,6 @@ namespace RacingGame2.Drawables
                     {
                         Random rand = new Random();
                         float randX = rand.Next(0, 4) * (screenW / 4f) + (screenW / 8f);
-                        Trace.WriteLine(x + " / " + screenW);
 
                         float randY = rand.Next(0, screenH);
                         y = (float)Math.Round(y / 400);
@@ -92,5 +94,13 @@ namespace RacingGame2.Drawables
                 }
             }
         }
+
+        public static bool isRectangleOverlap(Rect r1, Rect r2)
+        {
+            bool widthIsPositive = Math.Min(r1.X + r1.Width, r2.X + r2.Width) > Math.Max(r1.X, r2.X);
+            bool heightIsPositive = Math.Min(r1.Y + r1.Height, r2.Y + r2.Height) > Math.Max(r1.Y, r2.Y);
+            return (widthIsPositive && heightIsPositive);
+        }
+
     }
 }
