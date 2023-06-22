@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RacingGame2.AboutPage"
+             BackgroundColor="DarkGray">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+            
+            <Button 
+                Text="&lt;- Ga terug"
+                TextColor="Black"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                FontSize="12"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                Clicked="MainNavigate"/>
+
+            <Label 
+                Text="About"
+                TextColor="Black"
+                FontSize="32"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360" />
+                </Grid.ColumnDefinitions>
+                <Editor x:Name="aboutInfo"
+                        HeightRequest="250"
+                        BackgroundColor="White" 
+                        FontSize="16"
+                        TextColor="Black"
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Column="0" 
+                        Text="Rectangle Racing Game is gemaakt door Yannieck, Monique en Chris"
+                        IsReadOnly="True"
+                        />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

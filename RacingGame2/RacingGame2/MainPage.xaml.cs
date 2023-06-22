@@ -55,5 +55,10 @@ public partial class MainPage : ContentPage
 
         Application.Current.MainPage = new GamePage(player);
     }
+
+    private void AboutNavigate(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new AboutPage();
+    }
 }
 
