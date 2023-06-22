@@ -53,7 +53,20 @@ public partial class MainPage : ContentPage
 
     private void Navigate(object sender, EventArgs e)
 	{
-		Application.Current.MainPage = new GamePage();
-	}
+        string playerName = entry.Text;
+        string selectedRectangle = "";
+
+        if (selectedFrame == OrangeFrame)
+            selectedRectangle = "Orange";
+        else if (selectedFrame == GreenFrame)
+            selectedRectangle = "Green";
+        else if (selectedFrame == BlueFrame)
+            selectedRectangle = "Blue";
+
+        Player player = new Player(playerName, selectedRectangle);
+
+
+        Application.Current.MainPage = new GamePage();
+    }
 }
 
