@@ -7,12 +7,12 @@ using System.Diagnostics;
 namespace RacingGame2;
 
 public partial class GamePage : ContentPage
-{
-    private float aspect = 1.5f;
-    private int screenWidth, screenHeight = 750;
-    private GraphicsView gv;
-    private GameDrawable gd;
-    private float playerSpeed = 20;
+{ 
+	private float aspect = 1.5f;
+	private int screenWidth, screenHeight = 750;
+	private GraphicsView gv;
+	private GameDrawable gd;
+	private float playerSpeed = 20;
 
     TimeSpan periodTimeSpan = TimeSpan.FromMilliseconds(100);
 
