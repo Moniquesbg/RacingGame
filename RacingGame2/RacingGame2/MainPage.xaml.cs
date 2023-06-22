@@ -13,7 +13,6 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
-
     }
 
     private void OnRectangleTapped(object sender, EventArgs e)
