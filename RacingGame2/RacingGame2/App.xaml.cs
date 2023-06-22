@@ -6,7 +6,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new HighscorePage();
+		MainPage = new MainPage();
 	}
 
     protected override Window CreateWindow(IActivationState activationState)
