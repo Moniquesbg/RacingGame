@@ -2,36 +2,30 @@
 {
     internal class CarDrawable
     {
-        public float x, y;
+        public Car car { get; private set; }
 
-        public float w { get; private set; } = 75;
-        public float h { get; private set; } = 100;
-        public Color color { get; private set; }
-
-        public CarDrawable(float x, float y)
+        public CarDrawable(Car car)
         {
-            this.x = x;
-            this.y += y;
-            color = GetRandomColor();
+            this.car = car;
         }
 
-        public CarDrawable(float x, float y, Color color)
-        {
-            this.x = x;
-            this.y += y;
-            this.color = color;
-        }
+		public CarDrawable(float x, float y)
+		{
+            Random rnd = new Random();
+			Color randomColor = Color.FromRgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
 
-        public void Draw(ICanvas canvas)
-        {
-            canvas.FillColor = color;
-            canvas.FillRectangle(x - w / 2f, y - h / 2f, w, h);
-        }
+			this.car = new Car(x, y, randomColor);
+		}
 
-        private Color GetRandomColor()
+		public CarDrawable(float x, float y, Color color)
+		{
+			this.car = new Car(x, y, color);
+		}
+
+		public void Draw(ICanvas canvas)
         {
-            var random = new Random();
-            return new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
+            canvas.FillColor = car.color;
+            canvas.FillRectangle(car.x - car.w / 2f, car.y - car.h / 2f, car.w, car.h);
         }
     }
 }

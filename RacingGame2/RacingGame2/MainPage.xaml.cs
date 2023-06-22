@@ -23,7 +23,7 @@ public partial class MainPage : ContentPage
         if (selectedFrame != null)
         {
             //Deselecteert de vorige geselecteerde frame
-            selectedFrame.BorderColor = Color.FromHex("#00000000"); 
+            selectedFrame.BorderColor = Color.FromArgb("#00000000"); 
         }
 
         if (selectedFrame == tappedFrame)
@@ -34,7 +34,7 @@ public partial class MainPage : ContentPage
         else
         {
             // De geselecteerde frame
-            tappedFrame.BorderColor = Color.FromHex("#000000"); 
+            tappedFrame.BorderColor = Color.FromArgb("#000000"); 
             selectedFrame = tappedFrame;
         }
     }
@@ -52,7 +52,6 @@ public partial class MainPage : ContentPage
             selectedRectangle = "#0000FF";
 
         Player player = new Player(playerName, selectedRectangle);
-
 
         Application.Current.MainPage = new GamePage(player);
     }
