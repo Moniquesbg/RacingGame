@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RacingGame2
 {
-    internal class Player
+    public class Player
     {
-        private String name { get; set; }
-        private String chosenRectangle { get; set; }
+        public String name { get; set; }
+        public String chosenRectangle { get; set; }
 
         public Player(String name, String chosenRectangle)
         {

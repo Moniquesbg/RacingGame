@@ -9,10 +9,12 @@ namespace RacingGame2.Drawables
 
         private int carCount = 1;
         private int score = 0;
+        private Player player;
 
-        public GameDrawable(int screenW, float playerX, float playerY)
+        public GameDrawable(Player player, int screenW, float playerX, float playerY)
         {
-            pd = new PlayerDrawable(playerX, playerY);
+            this.player = player;
+            pd = new PlayerDrawable(player, playerX, playerY);
             cars = new CarDrawable[carCount];
 
             for (int i = 0; i < cars.Length; i++)
@@ -75,7 +77,7 @@ namespace RacingGame2.Drawables
 
         public void UpdatePosition(float x, float y)
         {
-            pd = new PlayerDrawable(pd.x + x, pd.y + y);
+            pd = new PlayerDrawable(player, pd.x + x, pd.y + y);
         }
 
         public void UpdateCarPosition(float x, float y, int screenW, int screenH)

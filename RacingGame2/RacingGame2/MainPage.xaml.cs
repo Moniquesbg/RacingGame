@@ -45,16 +45,16 @@ public partial class MainPage : ContentPage
         string selectedRectangle = "";
 
         if (selectedFrame == OrangeFrame)
-            selectedRectangle = "Orange";
+            selectedRectangle = "#FFA500";
         else if (selectedFrame == GreenFrame)
-            selectedRectangle = "Green";
+            selectedRectangle = "#008000";
         else if (selectedFrame == BlueFrame)
-            selectedRectangle = "Blue";
+            selectedRectangle = "#0000FF";
 
         Player player = new Player(playerName, selectedRectangle);
 
 
-        Application.Current.MainPage = new GamePage();
+        Application.Current.MainPage = new GamePage(player);
     }
 }
 
