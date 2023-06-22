@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RacingGame2
 {
-    internal class HighscoreBoard
+    public class HighscoreBoard
     {
         private List<Highscore> highscores { get; set; }
 

@@ -26,9 +26,11 @@
             <TableView Intent="Menu" Margin="50,20,20,20">
                 <TableRoot>
                     <TableSection>
-                        <TextCell Text="1. Monique" TextColor="Black"/>
-                        <TextCell Text="2. Chris" TextColor="Black"/>
-                        <TextCell Text="3. Yannieck" TextColor="Black"/>
+                        <TextCell Text="{Binding FirstPlace, Mode=TwoWay}" TextColor="Black"/>
+                        <TextCell Text="{Binding SecondPlace, Mode=TwoWay}" TextColor="Black"/>
+                        <TextCell Text="{Binding ThirdPlace, Mode=TwoWay}" TextColor="Black"/>
+                        <TextCell Text="{Binding FourthPlace, Mode=TwoWay}" TextColor="Black"/>
+                        <TextCell Text="{Binding FifthPlace, Mode=TwoWay}" TextColor="Black"/>
                     </TableSection>
                 </TableRoot>
             </TableView>

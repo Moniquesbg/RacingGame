@@ -47,15 +47,20 @@ namespace RacingGame2.Drawables
 
             for (int i = 0; i < cars.Length; i++)
             {
-                CarDrawable car = cars[i];
-                car.Draw(canvas);
+                CarDrawable carD = cars[i];
+				carD.Draw(canvas);
+                Car car = carD.car;
 
                 bool overlap = isRectangleOverlap(
                     new Rect(car.x, car.y, car.w, car.h), 
                     new Rect(pd.x, pd.y, pd.w, pd.h)
                 );
 
-                if (overlap) { Trace.WriteLine(overlap); }
+                if (overlap) {
+                    Trace.WriteLine(overlap);
+
+					Application.Current.MainPage = new GameOverPage(player);
+				}
             }
 
             canvas.FontSize = 20;
@@ -86,7 +91,8 @@ namespace RacingGame2.Drawables
             {
                 for (int i = 0; i < cars.Length; i++)
                 {
-                    CarDrawable car = cars[i];
+                    CarDrawable carD = cars[i];
+                    Car car = carD.car;
 
                     if (car.y - car.h + y < screenH)
                     {
