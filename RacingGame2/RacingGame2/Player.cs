@@ -9,12 +9,12 @@ namespace RacingGame2
     internal class Player
     {
         private String name { get; set; }
-        private Image chosenCar { get; set; }
+        private String chosenRectangle { get; set; }
 
-        public Player(String name)
+        public Player(String name, String chosenRectangle)
         {
             this.name = name;
-            this.chosenCar = new Image();
+            this.chosenRectangle = chosenRectangle;
         }
 
     }
