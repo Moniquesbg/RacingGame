@@ -2,6 +2,7 @@ using RacingGame2.Drawables;
 using SharpHook.Native;
 using SharpHook;
 using SharpHook.Reactive;
+using System.Diagnostics;
 
 namespace RacingGame2;
 
@@ -36,11 +37,16 @@ public partial class GamePage : ContentPage
         gv.Drawable = gd;
         Content = gv;
 
-        var timer = new Timer((e) =>
-        {
-            MoveCar();
-        }, null, TimeSpan.Zero, periodTimeSpan);
-    }
+		var timer = Application.Current.Dispatcher.CreateTimer();
+		timer.Interval = periodTimeSpan;
+		timer.Tick += (s, e) => MoveCar();
+		timer.Start();
+
+		var scoreTimer = Application.Current.Dispatcher.CreateTimer();
+		scoreTimer.Interval = TimeSpan.FromMilliseconds(1);
+		scoreTimer.Tick += (s, e) => gd.IncreaseScore();
+		scoreTimer.Start();
+	}
 
     protected override void OnAppearing()
     {

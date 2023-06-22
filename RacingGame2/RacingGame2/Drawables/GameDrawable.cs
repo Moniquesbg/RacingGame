@@ -8,6 +8,7 @@ namespace RacingGame2.Drawables
         public CarDrawable[] cars { get; private set; }
 
         private int carCount = 1;
+        private int score = 0;
 
         public GameDrawable(int screenW, float playerX, float playerY)
         {
@@ -55,10 +56,19 @@ namespace RacingGame2.Drawables
                 if (overlap) { Trace.WriteLine(overlap); }
             }
 
+            canvas.FontSize = 20;
+            canvas.FontColor = Color.FromArgb("#ffffff");
+            canvas.DrawString("Score: " + ((float)score/100f).ToString("n2"), 20, 20, HorizontalAlignment.Left);
+
             pd.Draw(canvas);
         }
 
-        public Point GetPlayerPosition()
+		public void IncreaseScore()
+        {
+            score++;
+        }
+
+		public Point GetPlayerPosition()
         {
             return new Point(pd.x, pd.y);
         }
