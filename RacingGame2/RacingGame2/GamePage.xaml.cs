@@ -16,7 +16,7 @@ public partial class GamePage : ContentPage
 
     TimeSpan periodTimeSpan = TimeSpan.FromMilliseconds(100);
 
-    public GamePage()
+    public GamePage(Player player)
     {
         InitializeComponent();
 
@@ -33,7 +33,7 @@ public partial class GamePage : ContentPage
         gv.WidthRequest = screenWidth;
         gv.HeightRequest = screenHeight;
 
-        gd = new GameDrawable(screenWidth, (screenWidth / 4f) * 1.5f, screenHeight - 100);
+        gd = new GameDrawable(player, screenWidth, (screenWidth / 4f) * 1.5f, screenHeight - 100);
         gv.Drawable = gd;
         Content = gv;
 

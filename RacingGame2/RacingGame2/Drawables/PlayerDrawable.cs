@@ -3,25 +3,21 @@
 	internal class PlayerDrawable
 	{
 		public float x, y;
-        public float w { get; private set; } = 75;
-        public float h { get; private set; } = 100;
+		public float w { get; private set; } = 75;
+		public float h { get; private set; } = 100;
+		private Player player;
 
-        public PlayerDrawable()
+		public PlayerDrawable(Player player, float x, float y)
 		{
-			this.x = 0;
-			this.y = 0;
-		}
-
-		public PlayerDrawable(float x, float y)
-		{
+			this.player = player;
 			this.x = x;
 			this.y += y;
 		}
 
 		public void Draw(ICanvas canvas)
 		{
-			canvas.FillColor = new Color(1f, 0f, 0f);
+			canvas.FillColor = Color.FromArgb(player.chosenRectangle);
 			canvas.FillRectangle(x - w / 2f, y - h / 2f, w, h);
 		}
-    }
+	}
 }
