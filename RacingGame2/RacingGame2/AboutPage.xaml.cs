@@ -18,7 +18,7 @@ public partial class AboutPage : ContentPage
     {
 
     }
-    private void MainNavigate(object sender, EventArgs e)
+    private void Navigate(object sender, EventArgs e)
     {
         Application.Current.MainPage = new MainPage();
     }

@@ -13,7 +13,6 @@
             <Label
             Text="Rectangle racing game!"
             TextColor="Black"
-            SemanticProperties.HeadingLevel="Level1"
             FontSize="32"
             FontAttributes="Bold"
             HorizontalOptions="Center" />
@@ -36,7 +35,6 @@
                 Text=""
                 FontAttributes="Bold"
                 TextColor="Red"
-                SemanticProperties.HeadingLevel="Level2"
                 FontSize="18"
                 HorizontalOptions="Center"
                 />
@@ -44,7 +42,6 @@
             <Label
             Text="Choose your Rectangle:"
             TextColor="Black"
-            SemanticProperties.HeadingLevel="Level2"
             FontSize="18"
             HorizontalOptions="Center" />
 
@@ -87,7 +84,7 @@
             </HorizontalStackLayout>
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="Startbtn"
                 Text="Start!"
                 BackgroundColor="Red"
                 TextColor="White"
@@ -96,12 +93,21 @@
                 WidthRequest="100"
                 HeightRequest="50" 
                 Margin="0,20,0,0" />
+            <Button
+                x:Name="HighscoreBtn"
+                Text="Highscores"
+                BackgroundColor="Green"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="100"
+                HeightRequest="50"  />
             <Button 
                 x:Name="AboutBtn"
                 Text="About"
                 BackgroundColor="Blue"
                 TextColor="White"
-                Clicked="AboutNavigate"
+                Clicked="Navigate"
                 HorizontalOptions="Center"
                 WidthRequest="100"
                 HeightRequest="50"/>

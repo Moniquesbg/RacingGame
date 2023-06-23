@@ -42,39 +42,47 @@ public partial class MainPage : ContentPage
     private void Navigate(object sender, EventArgs e)
 	{
         bool filled = true;
+        Button clickedBtn = (Button)sender;
 
-        if (string.IsNullOrWhiteSpace(entry.Text))
+        if (clickedBtn == HighscoreBtn)
         {
-            filled = false;
-            Errormessage.Text = "Please fill in a name";
+            Application.Current.MainPage = new HighscorePage();
         }
-        else
+        else if (clickedBtn == AboutBtn)
         {
-            string playerName = entry.Text;
-            string selectedRectangle = "";
-            if (selectedFrame == OrangeFrame)
-                selectedRectangle = "#FFA500";
-            else if (selectedFrame == GreenFrame)
-                selectedRectangle = "#008000";
-            else if (selectedFrame == BlueFrame)
-                selectedRectangle = "#0000FF";
-            else
+            Application.Current.MainPage = new AboutPage();
+        }
+        else if (clickedBtn == Startbtn)
+        {
+            if (string.IsNullOrWhiteSpace(entry.Text))
             {
                 filled = false;
-                Errormessage.Text = "Please select a rectangle";
+                Errormessage.Text = "Please fill in a name";
             }
-            if (filled)
+            else
             {
-                Player player = new Player(playerName, selectedRectangle);
+                string playerName = entry.Text;
+                string selectedRectangle = "";
+                if (selectedFrame == OrangeFrame)
+                    selectedRectangle = "#FFA500";
+                else if (selectedFrame == GreenFrame)
+                    selectedRectangle = "#008000";
+                else if (selectedFrame == BlueFrame)
+                    selectedRectangle = "#0000FF";
+                else
+                {
+                    filled = false;
+                    Errormessage.Text = "Please select a rectangle";
+                }
+                if (filled)
+                {
+                    Player player = new Player(playerName, selectedRectangle);
 
-                Application.Current.MainPage = new GamePage(player);
+                    Application.Current.MainPage = new GamePage(player);
+                }
             }
-        }
-    }
-
-    private void AboutNavigate(object sender, EventArgs e)
-    {
-        Application.Current.MainPage = new AboutPage();
+        } 
+        
     }
 }
 

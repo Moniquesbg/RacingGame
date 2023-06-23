@@ -14,13 +14,21 @@
                FontSize="80"
                VerticalOptions="Center"
                HorizontalOptions="Center" />
+        
         <Button Text="Highscores"
                 VerticalOptions="Center"
+                BackgroundColor="Green"
+                TextColor="White"
                 HorizontalOptions="Center"
+                WidthRequest="125"
                 Clicked="HighscoreButton" />
+         
         <Button Text="Main Menu"
                 VerticalOptions="Center"
+                WidthRequest="125"
                 HorizontalOptions="Center"
+                BackgroundColor="HotPink"
+                TextColor="White"
                 Clicked="MainMenuButton" />
     </StackLayout>
 </ContentPage>
