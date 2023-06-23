@@ -1,10 +1,15 @@
+using NUnit.Framework;
+using RacingGame2; // Import the namespace of the source project
+
 namespace RacingGame2_testcases
 {
     public class Tests
     {
+        private Player player;
         [SetUp]
         public void Setup()
         {
+            Monique = new Player("Monique", "Orange");
         }
 
         [Test]
