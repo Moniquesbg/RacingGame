@@ -87,7 +87,7 @@
             </HorizontalStackLayout>
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="Startbtn"
                 Text="Start!"
                 BackgroundColor="Red"
                 TextColor="White"
@@ -96,12 +96,21 @@
                 WidthRequest="100"
                 HeightRequest="50" 
                 Margin="0,20,0,0" />
+            <Button
+                x:Name="HighscoreBtn"
+                Text="Highscores"
+                BackgroundColor="Green"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="100"
+                HeightRequest="50"  />
             <Button 
                 x:Name="AboutBtn"
                 Text="About"
                 BackgroundColor="Blue"
                 TextColor="White"
-                Clicked="AboutNavigate"
+                Clicked="Navigate"
                 HorizontalOptions="Center"
                 WidthRequest="100"
                 HeightRequest="50"/>

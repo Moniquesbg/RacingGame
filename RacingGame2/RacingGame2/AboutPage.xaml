@@ -7,17 +7,7 @@
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Start">
-            
-            <Button 
-                Text="&lt;- Ga terug"
-                TextColor="Black"
-                BackgroundColor="Transparent"
-                BorderColor="Transparent"
-                FontSize="12"
-                FontAttributes="Bold"
-                HorizontalOptions="Start"
-                Clicked="MainNavigate"/>
+            VerticalOptions="Center">
 
             <Label 
                 Text="About"
@@ -41,6 +31,17 @@
                         IsReadOnly="True"
                         />
             </Grid>
+
+            <Button
+                x:Name="BackBtn"
+                Text="Back to Menu"
+                BackgroundColor="Blue"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="120"
+                HeightRequest="50" 
+                Margin="0,20,0,0" />
 
         </VerticalStackLayout>
     </ScrollView>
