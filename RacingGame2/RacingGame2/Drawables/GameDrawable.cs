@@ -11,9 +11,9 @@ namespace RacingGame2.Drawables
         private int score = 0;
         private Player player;
 
-        public GameDrawable(Player player, int screenW, float playerX, float playerY)
+		public GameDrawable(Player player, int screenW, float playerX, float playerY)
         {
-            this.player = player;
+			this.player = player;
             pd = new PlayerDrawable(player, playerX, playerY);
             cars = new CarDrawable[carCount];
 
@@ -59,13 +59,20 @@ namespace RacingGame2.Drawables
                 if (overlap) {
                     Trace.WriteLine(overlap);
 
+                    HighscoreBoard.AddScore(player, TimeSpan.FromMilliseconds(score));
 					Application.Current.MainPage = new GameOverPage(player);
 				}
             }
 
             canvas.FontSize = 20;
             canvas.FontColor = Color.FromArgb("#ffffff");
-            canvas.DrawString("Score: " + ((float)score/100f).ToString("n2"), 20, 20, HorizontalAlignment.Left);
+
+			TimeSpan t = TimeSpan.FromMilliseconds(score);
+			string formattedScore = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
+						t.Minutes,
+						t.Seconds,
+						t.Milliseconds);
+			canvas.DrawString("Score: " + formattedScore, 20, 20, HorizontalAlignment.Left);
 
             pd.Draw(canvas);
         }

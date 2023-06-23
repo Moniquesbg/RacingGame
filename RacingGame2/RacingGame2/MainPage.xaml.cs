@@ -7,16 +7,15 @@ namespace RacingGame2;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
     private Frame selectedFrame;
 
-    public MainPage()
+	public MainPage()
 	{
 		InitializeComponent();
 
-    }
+	}
 
-    private void OnRectangleTapped(object sender, EventArgs e)
+	private void OnRectangleTapped(object sender, EventArgs e)
     {
         Frame tappedFrame = (Frame)sender;
 

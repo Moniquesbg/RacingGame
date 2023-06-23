@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RacingGame2.HighscorePage"
+             xmlns:local="clr-namespace:RacingGame2"
              Title="HighscorePage"
              BackgroundColor="DarkGray">
     <VerticalStackLayout>
@@ -26,11 +27,11 @@
             <TableView Intent="Menu" Margin="50,20,20,20">
                 <TableRoot>
                     <TableSection>
-                        <TextCell Text="{Binding FirstPlace, Mode=TwoWay}" TextColor="Black"/>
-                        <TextCell Text="{Binding SecondPlace, Mode=TwoWay}" TextColor="Black"/>
-                        <TextCell Text="{Binding ThirdPlace, Mode=TwoWay}" TextColor="Black"/>
-                        <TextCell Text="{Binding FourthPlace, Mode=TwoWay}" TextColor="Black"/>
-                        <TextCell Text="{Binding FifthPlace, Mode=TwoWay}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.FirstPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.SecondPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.ThirdPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.FourthPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.FifthPlace}}" TextColor="Black"/>
                     </TableSection>
                 </TableRoot>
             </TableView>
