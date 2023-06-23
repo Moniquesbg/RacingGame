@@ -37,7 +37,7 @@
                         TextColor="Black"
                         HorizontalOptions="FillAndExpand"
                         Grid.Column="0" 
-                        Text="Rectangle Racing Game was made by Yannieck, Monique en Chris"
+                        Text="Rectangle Racing Game is gemaakt door Yannieck, Monique en Chris"
                         IsReadOnly="True"
                         />
             </Grid>

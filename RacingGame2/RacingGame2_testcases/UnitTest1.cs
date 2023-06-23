@@ -5,26 +5,17 @@ namespace RacingGame2_testcases
 {
     public class Tests
     {
-        private Player player;
+        Player player = new Player(); // Use the fully qualified name
+
         [SetUp]
         public void Setup()
         {
-            Monique = new Player("Monique", "Orange");
         }
 
         [Test]
         public void Test1()
         {
-            // Arrange
-            int a = 1;
-            int b = 1;
-            int expectedSum = 2;
-
-            // Act
-            int actualSum = a + b;
-
-            // Assert
-            Assert.AreEqual(expectedSum, actualSum);
+            Assert.Pass();
         }
     }
 }

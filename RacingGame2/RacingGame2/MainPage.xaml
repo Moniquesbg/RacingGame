@@ -26,20 +26,9 @@
                 Placeholder="Player name"
                 PlaceholderColor="Black"
                 BackgroundColor="White" 
-                TextColor="Black"
                 HorizontalOptions="FillAndExpand"
                 Grid.Column="0" />
             </Grid>
-
-            <Label
-                x:Name="Errormessage"
-                Text=""
-                FontAttributes="Bold"
-                TextColor="Red"
-                SemanticProperties.HeadingLevel="Level2"
-                FontSize="18"
-                HorizontalOptions="Center"
-                />
 
             <Label
             Text="Choose your Rectangle:"
