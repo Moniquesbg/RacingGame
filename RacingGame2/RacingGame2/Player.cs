@@ -16,6 +16,5 @@ namespace RacingGame2
             this.name = name;
             this.chosenRectangle = chosenRectangle;
         }
-
     }
 }
