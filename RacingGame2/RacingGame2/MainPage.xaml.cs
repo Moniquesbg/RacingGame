@@ -2,6 +2,7 @@
 using SharpHook.Reactive;
 using SharpHook;
 using System.Diagnostics;
+using RacingGame2.Drawables;
 
 namespace RacingGame2;
 
@@ -41,20 +42,36 @@ public partial class MainPage : ContentPage
 
     private void Navigate(object sender, EventArgs e)
 	{
-        string playerName = entry.Text;
-        string selectedRectangle = "";
+        bool filled = true;
 
-        if (selectedFrame == OrangeFrame)
-            selectedRectangle = "#FFA500";
-        else if (selectedFrame == GreenFrame)
-            selectedRectangle = "#008000";
-        else if (selectedFrame == BlueFrame)
-            selectedRectangle = "#0000FF";
+        if (string.IsNullOrWhiteSpace(entry.Text))
+        {
+            filled = false;
+            Errormessage.Text = "Please fill in a name";
+        }
+        else
+        {
+            string playerName = entry.Text;
+            string selectedRectangle = "";
+            if (selectedFrame == OrangeFrame)
+                selectedRectangle = "#FFA500";
+            else if (selectedFrame == GreenFrame)
+                selectedRectangle = "#008000";
+            else if (selectedFrame == BlueFrame)
+                selectedRectangle = "#0000FF";
+            else
+            {
+                filled = false;
+                Errormessage.Text = "Please select a rectangle";
+            }
+            if (filled)
+            {
+                Player player = new Player(playerName, selectedRectangle);
 
-        Player player = new Player(playerName, selectedRectangle);
 
-
-        Application.Current.MainPage = new GamePage(player);
+                Application.Current.MainPage = new GamePage(player);
+            }
+        }
     }
 
     private void AboutNavigate(object sender, EventArgs e)
