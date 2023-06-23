@@ -68,7 +68,6 @@ public partial class MainPage : ContentPage
             {
                 Player player = new Player(playerName, selectedRectangle);
 
-
                 Application.Current.MainPage = new GamePage(player);
             }
         }
