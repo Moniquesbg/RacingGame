@@ -7,7 +7,8 @@ namespace RacingGame2.Drawables
 		public PlayerDrawable pd { get; private set; }
 		public CarDrawable[] cars { get; private set; }
 
-		private int carCount = 1;
+		private int carCount = 6;
+		private float randomizer = 800;
 		private int score = 0;
 		private Player player;
 
@@ -22,9 +23,9 @@ namespace RacingGame2.Drawables
 				Random rand = new Random();
 				float x = rand.Next(0, 4) * (screenW / 4f) + (screenW / 8f);
 
-				float y = rand.Next(0, 1500);
-				y = (float)Math.Round(y / 400);
-				y *= 200;
+				float y = rand.Next(0, (int)randomizer * 2);
+				y = (float)Math.Round(y / randomizer);
+				y *= randomizer / 2;
 
 				cars[i] = new CarDrawable(x, -y);
 			}
@@ -58,8 +59,6 @@ namespace RacingGame2.Drawables
 
 				if (overlap)
 				{
-					Trace.WriteLine(overlap);
-
 					HighscoreBoard.AddScore(player, TimeSpan.FromMilliseconds(score));
 					Application.Current.MainPage = new GameOverPage(player);
 				}

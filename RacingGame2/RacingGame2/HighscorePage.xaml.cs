@@ -8,4 +8,9 @@ public partial class HighscorePage : ContentPage
 	{
 		this.InitializeComponent();
 	}
+
+	private void Navigate(object sender, EventArgs e)
+	{
+		Application.Current.MainPage = new MainPage();
+	}
 }

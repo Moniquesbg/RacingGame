@@ -91,7 +91,6 @@
                 Text="Start!"
                 BackgroundColor="Red"
                 TextColor="White"
-                SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="Navigate"
                 HorizontalOptions="Center"
                 WidthRequest="100"
