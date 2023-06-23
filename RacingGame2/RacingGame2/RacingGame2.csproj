@@ -54,8 +54,4 @@
 		<PackageReference Include="SharpHook.Reactive" Version="4.2.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="RacingGame2.csproj" />
-	</ItemGroup>
-
 </Project>
