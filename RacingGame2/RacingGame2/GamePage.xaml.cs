@@ -44,7 +44,7 @@ public partial class GamePage : ContentPage
 
 		var scoreTimer = Application.Current.Dispatcher.CreateTimer();
 		scoreTimer.Interval = TimeSpan.FromMilliseconds(1);
-		scoreTimer.Tick += (s, e) => gd.IncreaseScore();
+		scoreTimer.Tick += (s, e) => gd.IncreaseScore(10);
 		scoreTimer.Start();
 	}
 

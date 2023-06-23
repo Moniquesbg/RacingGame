@@ -2,28 +2,28 @@
 using SharpHook.Reactive;
 using SharpHook;
 using System.Diagnostics;
+using RacingGame2.Drawables;
 
 namespace RacingGame2;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
     private Frame selectedFrame;
 
-    public MainPage()
+	public MainPage()
 	{
 		InitializeComponent();
 
-    }
+	}
 
-    private void OnRectangleTapped(object sender, EventArgs e)
+	private void OnRectangleTapped(object sender, EventArgs e)
     {
         Frame tappedFrame = (Frame)sender;
 
         if (selectedFrame != null)
         {
             //Deselecteert de vorige geselecteerde frame
-            selectedFrame.BorderColor = Color.FromHex("#00000000"); 
+            selectedFrame.BorderColor = Color.FromArgb("#00000000"); 
         }
 
         if (selectedFrame == tappedFrame)
@@ -34,27 +34,42 @@ public partial class MainPage : ContentPage
         else
         {
             // De geselecteerde frame
-            tappedFrame.BorderColor = Color.FromHex("#000000"); 
+            tappedFrame.BorderColor = Color.FromArgb("#000000"); 
             selectedFrame = tappedFrame;
         }
     }
 
     private void Navigate(object sender, EventArgs e)
 	{
-        string playerName = entry.Text;
-        string selectedRectangle = "";
+        bool filled = true;
 
-        if (selectedFrame == OrangeFrame)
-            selectedRectangle = "#FFA500";
-        else if (selectedFrame == GreenFrame)
-            selectedRectangle = "#008000";
-        else if (selectedFrame == BlueFrame)
-            selectedRectangle = "#0000FF";
+        if (string.IsNullOrWhiteSpace(entry.Text))
+        {
+            filled = false;
+            Errormessage.Text = "Please fill in a name";
+        }
+        else
+        {
+            string playerName = entry.Text;
+            string selectedRectangle = "";
+            if (selectedFrame == OrangeFrame)
+                selectedRectangle = "#FFA500";
+            else if (selectedFrame == GreenFrame)
+                selectedRectangle = "#008000";
+            else if (selectedFrame == BlueFrame)
+                selectedRectangle = "#0000FF";
+            else
+            {
+                filled = false;
+                Errormessage.Text = "Please select a rectangle";
+            }
+            if (filled)
+            {
+                Player player = new Player(playerName, selectedRectangle);
 
-        Player player = new Player(playerName, selectedRectangle);
-
-
-        Application.Current.MainPage = new GamePage(player);
+                Application.Current.MainPage = new GamePage(player);
+            }
+        }
     }
 
     private void AboutNavigate(object sender, EventArgs e)

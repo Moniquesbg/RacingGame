@@ -8,12 +8,25 @@ namespace RacingGame2
 {
     internal class Car
     {
-        private Image car { get; set; }
+        public float x, y, w = 75, h = 100;
+        public Color color { get; set; }
 
-        public Car(Image car)
+        public Car(float x, float y, float w, float h, Color color)
         {
-            this.car = car;
+            this.x = x;
+            this.y = y; 
+            this.w = w;
+            this.h = h;
+            this.color = color;
         }
 
-    }
+		public Car(float x, float y, Color color)
+		{
+			this.x = x;
+			this.y = y;
+			this.color = color;
+		}
+
+
+	}
 }
