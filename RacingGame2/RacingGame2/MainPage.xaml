@@ -13,7 +13,6 @@
             <Label
             Text="Rectangle racing game!"
             TextColor="Black"
-            SemanticProperties.HeadingLevel="Level1"
             FontSize="32"
             FontAttributes="Bold"
             HorizontalOptions="Center" />
@@ -36,7 +35,6 @@
                 Text=""
                 FontAttributes="Bold"
                 TextColor="Red"
-                SemanticProperties.HeadingLevel="Level2"
                 FontSize="18"
                 HorizontalOptions="Center"
                 />
@@ -44,7 +42,6 @@
             <Label
             Text="Choose your Rectangle:"
             TextColor="Black"
-            SemanticProperties.HeadingLevel="Level2"
             FontSize="18"
             HorizontalOptions="Center" />
 
