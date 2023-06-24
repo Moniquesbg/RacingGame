@@ -17,10 +17,11 @@ namespace RacingGame2.Drawables
 			this.player = player;
 			pd = new PlayerDrawable(player, playerX, playerY);
 			cars = new CarDrawable[carCount];
+			Random rand = new Random();
+
 
 			for (int i = 0; i < cars.Length; i++)
 			{
-				Random rand = new Random();
 				float x = rand.Next(0, 4) * (screenW / 4f) + (screenW / 8f);
 
 				float y = rand.Next(0, (int)randomizer * 2);

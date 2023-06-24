@@ -5,11 +5,10 @@ namespace RacingGame2_testcases
 {
     public class Tests
     {
-        private Player player;
         [SetUp]
         public void Setup()
         {
-            Monique = new Player("Monique", "Orange");
+            Player Monique = new Player("Monique", "Orange");
         }
 
         [Test]
