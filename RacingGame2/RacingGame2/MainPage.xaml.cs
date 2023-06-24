@@ -16,16 +16,16 @@ public partial class MainPage : ContentPage
 
 	}
 
-	private void OnRectangleTapped(object sender, EventArgs e)
+    private void OnImageTapped(object sender, EventArgs e)
     {
-        Frame tappedFrame = (Frame)sender;
+        Image tappedImage = (Image)sender;
+        Frame tappedFrame = FindParentFrame(tappedImage);
 
         if (selectedFrame != null)
         {
             //Deselecteert de vorige geselecteerde frame
-            selectedFrame.BorderColor = Color.FromArgb("#00000000"); 
+            selectedFrame.BorderColor = Color.FromArgb("#00000000");
         }
-
         if (selectedFrame == tappedFrame)
         {
             // Als de geselecteerde rechthoek al geselecteerd is, dan clear
@@ -38,6 +38,22 @@ public partial class MainPage : ContentPage
             selectedFrame = tappedFrame;
         }
     }
+
+    private Frame FindParentFrame(Element element)
+    {
+        Element parent = element.Parent;
+        while (parent != null)
+        {
+            if (parent is Frame frame) 
+                return frame;
+
+            parent = parent.Parent;
+        }
+
+        return null;
+    }
+
+
 
     private void Navigate(object sender, EventArgs e)
 	{
@@ -61,28 +77,10 @@ public partial class MainPage : ContentPage
             }
             else
             {
-                string playerName = entry.Text;
-                string selectedRectangle = "";
-                if (selectedFrame == OrangeFrame)
-                    selectedRectangle = "#FFA500";
-                else if (selectedFrame == GreenFrame)
-                    selectedRectangle = "#008000";
-                else if (selectedFrame == BlueFrame)
-                    selectedRectangle = "#0000FF";
-                else
-                {
-                    filled = false;
-                    Errormessage.Text = "Please select a rectangle";
-                }
-                if (filled)
-                {
-                    Player player = new Player(playerName, selectedRectangle);
-
-                    Application.Current.MainPage = new GamePage(player);
-                }
+                string selectedImageSource = ((Image)selectedFrame.Content).Source.ToString();
+                Player player = new Player(entry.Text, selectedImageSource);
             }
-        } 
-        
+        }
     }
 }
 

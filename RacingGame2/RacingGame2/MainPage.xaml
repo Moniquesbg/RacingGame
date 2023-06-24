@@ -11,7 +11,7 @@
         VerticalOptions="Center">
 
             <Label
-            Text="Rectangle racing game!"
+            Text="Racing game!"
             TextColor="Black"
             FontSize="32"
             FontAttributes="Bold"
@@ -40,48 +40,49 @@
                 />
 
             <Label
-            Text="Choose your Rectangle:"
+            Text="Choose your car:"
             TextColor="Black"
             FontSize="18"
             HorizontalOptions="Center" />
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
-                <Frame x:Name="OrangeFrame"
-                       BackgroundColor="Orange"
-                       WidthRequest="100"
-                       HeightRequest="150"
-                       Padding="0"
-                       BorderColor="Transparent"
-                       CornerRadius="5">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnRectangleTapped" />
-                    </Frame.GestureRecognizers>
+                <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="YellowCarFrame" BorderColor="Transparent">
+                    <Image x:Name="YellowCarImage"
+               Source="yellow_car.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               WidthRequest="120">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
 
-                <Frame x:Name="GreenFrame"
-                       BackgroundColor="Green"
-                       WidthRequest="100"
-                       HeightRequest="150"
-                       Padding="0"
-                       BorderColor="Transparent"
-                       CornerRadius="5">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnRectangleTapped" />
-                    </Frame.GestureRecognizers>
+                <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="RedCarFrame" BorderColor="Transparent">
+                    <Image x:Name="RedCarImage"
+               Source="red_car.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               WidthRequest="120">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
 
-                <Frame x:Name="BlueFrame"
-                       BackgroundColor="Blue"
-                       WidthRequest="100"
-                       HeightRequest="150"
-                       Padding="0"
-                       BorderColor="Transparent"
-                       CornerRadius="5">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnRectangleTapped" />
-                    </Frame.GestureRecognizers>
+                <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="WhiteCarFrame" BorderColor="Transparent">
+                    <Image x:Name="WhiteCarImage"
+               Source="white_car.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               WidthRequest="120">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
             </HorizontalStackLayout>
+
 
             <Button
                 x:Name="Startbtn"
