@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RacingGame2", "RacingGame2\RacingGame2.csproj", "{F05343F1-1EC9-4683-9084-8A49EC259B34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RacingGame2_testcases", "RacingGame2_testcases\RacingGame2_testcases.csproj", "{2414FE0C-B40F-4F7E-9D24-FF4C83B7265A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,10 +17,6 @@ Global
 		{F05343F1-1EC9-4683-9084-8A49EC259B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F05343F1-1EC9-4683-9084-8A49EC259B34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F05343F1-1EC9-4683-9084-8A49EC259B34}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{2414FE0C-B40F-4F7E-9D24-FF4C83B7265A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2414FE0C-B40F-4F7E-9D24-FF4C83B7265A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2414FE0C-B40F-4F7E-9D24-FF4C83B7265A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2414FE0C-B40F-4F7E-9D24-FF4C83B7265A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

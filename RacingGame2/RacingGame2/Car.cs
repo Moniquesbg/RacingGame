@@ -6,25 +6,16 @@ using System.Threading.Tasks;
 
 namespace RacingGame2
 {
-    internal class Car
+    public class Car
     {
-        public float x, y, w = 75, h = 100;
-        public Color color { get; set; }
+        public float x, y, w = 75, h = 125;
+        public string imageSource { get; set; }
 
-        public Car(float x, float y, float w, float h, Color color)
-        {
-            this.x = x;
-            this.y = y; 
-            this.w = w;
-            this.h = h;
-            this.color = color;
-        }
-
-		public Car(float x, float y, Color color)
+		public Car(float x, float y, string imageSource)
 		{
 			this.x = x;
 			this.y = y;
-			this.color = color;
+			this.imageSource = imageSource;
 		}
 
 

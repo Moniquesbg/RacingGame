@@ -61,16 +61,20 @@ public partial class GamePage : ContentPage
 
     void MovePlayer(float x, float y)
     {
-        float hw = gd.pd.w / 2;
-        float hh = gd.pd.h / 2;
+        float hw = gd.pd.player.car.w / 2;
+        float hh = gd.pd.player.car.h / 2;
 
-        if (gd.GetPlayerPosition().X + x > hw && gd.GetPlayerPosition().X + x < screenWidth - hw &&
-            gd.GetPlayerPosition().Y + y > hh && gd.GetPlayerPosition().Y + y < screenHeight - hh)
+        double newPlayerX = gd.GetPlayerPosition().X + x;
+        double newPlayerY = gd.GetPlayerPosition().Y + y;
+
+        if (newPlayerX > hw && newPlayerX < screenWidth - hw &&
+            newPlayerY > hh && newPlayerY < screenHeight - hh)
         {
             gd.UpdatePosition(x, y);
             gv.Invalidate();
         }
     }
+
 
     void MoveCar()
     {
