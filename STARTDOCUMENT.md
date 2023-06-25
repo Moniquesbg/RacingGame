@@ -66,7 +66,7 @@ De game zelf
 
 ## Klassendiagram
 
-![Class Diagram](img/raceGameUMLv2.png "First Version of the class diagram")
+![Class Diagram](img/raceGameUMLv3.png "Third Version of the class diagram")
 
 ## Testplan
 
@@ -74,7 +74,7 @@ In this section the testcases will be described to test the application.
 
 ### Testdata
 
-In de tabellen hieronder worden de data weergegeven die nodig zijn om de applicatie te testen.
+In de tabellen hieronder worden de data weergegeven die nodig zijn om de applicatie te testen
 
 #### Player
 
