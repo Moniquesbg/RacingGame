@@ -12,7 +12,7 @@ public partial class GamePage : ContentPage
 	private int screenWidth, screenHeight = 750;
 	private GraphicsView gv;
 	private GameDrawable gd;
-	private float playerSpeed = 1;
+	private float playerSpeed = 20;
 
     TimeSpan periodTimeSpan = TimeSpan.FromMilliseconds(100);
 

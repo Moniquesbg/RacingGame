@@ -12,12 +12,11 @@ namespace RacingGame2.Drawables
 		{
 			this.player = player;
 			player.car.x = x;
-			player.car.y += y;
+			player.car.y = y;
 		}
 
 		public void Draw(ICanvas canvas)
 		{
-            Trace.WriteLine("draw");
             IImage image = null;
             Assembly assembly = GetType().GetTypeInfo().Assembly;
             Stream stream = assembly.GetManifestResourceStream(player.car.imageSource);
@@ -29,7 +28,6 @@ namespace RacingGame2.Drawables
 
             if (image != null)
             {
-                Trace.WriteLine("drawing image: " + image.ToString() + " at: " + player.car.x);
                 canvas.DrawImage(image, player.car.x - player.car.w / 2, player.car.y - player.car.h / 2, player.car.w, player.car.h);
             }
             else
