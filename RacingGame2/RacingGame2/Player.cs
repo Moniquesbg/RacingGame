@@ -9,14 +9,13 @@ namespace RacingGame2
 {
 	public class Player
 	{
-		public string name { get; set; }
-        public string ImageSource { get; set; }
+		public string name { get; private set; }
+		public Car car { get; private set; }
 
-
-        public Player(string name, string imageSource)
+        public Player(string name, Car car)
 		{
 			this.name = name;
-			this.ImageSource = imageSource;
+			this.car = car;
 		}
 
 		public string Name

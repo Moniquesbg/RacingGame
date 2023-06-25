@@ -77,8 +77,10 @@ public partial class MainPage : ContentPage
             }
             else
             {
-                string selectedImageSource = ((Image)selectedFrame.Content).Source.ToString();
-                Player player = new Player(entry.Text, selectedImageSource);
+                string selectedImageSource = "RacingGame2.Resources.Images." + ((Image)selectedFrame.Content).Source.ToString().Substring(6);
+                
+                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
+                Application.Current.MainPage = new GamePage(player);
             }
         }
     }

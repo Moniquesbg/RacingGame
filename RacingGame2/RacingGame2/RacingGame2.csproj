@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -46,6 +45,35 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\red_car.png" />
+	  <MauiImage Remove="Resources\Images\white_car.png" />
+	  <MauiImage Remove="Resources\Images\yellow_car.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\Npc_cars\bugatti.png" />
+	  <None Remove="Resources\Images\Npc_cars\lamborghini.png" />
+	  <None Remove="Resources\Images\Npc_cars\lightningmcqueen.png" />
+	  <None Remove="Resources\Images\Npc_cars\red_car.png" />
+	  <None Remove="Resources\Images\Npc_cars\rusteze.png" />
+	  <None Remove="Resources\Images\Npc_cars\white_car.png" />
+	  <None Remove="Resources\Images\Npc_cars\yellow_car.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\bugatti.png" />
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\lamborghini.png" />
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\lightningmcqueen.png" />
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\red_car.png" />
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\rusteze.png" />
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\white_car.png" />
+	  <EmbeddedResource Include="Resources\Images\Npc_cars\yellow_car.png" />
+	  <EmbeddedResource Include="Resources\Images\red_car.png" />
+	  <EmbeddedResource Include="Resources\Images\white_car.png" />
+	  <EmbeddedResource Include="Resources\Images\yellow_car.png" />
 	</ItemGroup>
 
 	<ItemGroup>
