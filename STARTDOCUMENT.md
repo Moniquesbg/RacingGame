@@ -66,7 +66,7 @@ De game zelf
 
 ## Klassendiagram
 
-![Class Diagram](img/raceGame.png "First Version of the class diagram")
+![Class Diagram](img/raceGameUMLv2.png "First Version of the class diagram")
 
 ## Testplan
 
