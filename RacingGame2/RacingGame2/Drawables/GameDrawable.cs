@@ -67,10 +67,9 @@
             canvas.FontColor = Color.FromArgb("#ffffff");
 
             TimeSpan t = TimeSpan.FromMilliseconds(score);
-            string formattedScore = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
+            string formattedScore = string.Format("{0:D2}m:{1:D2}s",
                         t.Minutes,
-                        t.Seconds,
-                        t.Milliseconds);
+                        t.Seconds);
             canvas.DrawString("Score: " + formattedScore, 20, 20, HorizontalAlignment.Left);
 
             pd.Draw(canvas);
