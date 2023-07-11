@@ -10,11 +10,11 @@ public partial class MainPage : ContentPage
 {
     private Frame selectedFrame;
 
-	public MainPage()
-	{
-		InitializeComponent();
+    public MainPage()
+    {
+        InitializeComponent();
 
-	}
+    }
 
     private void OnImageTapped(object sender, EventArgs e)
     {
@@ -34,7 +34,7 @@ public partial class MainPage : ContentPage
         else
         {
             // De geselecteerde frame
-            tappedFrame.BorderColor = Color.FromArgb("#000000"); 
+            tappedFrame.BorderColor = Color.FromArgb("#000000");
             selectedFrame = tappedFrame;
         }
     }
@@ -44,7 +44,7 @@ public partial class MainPage : ContentPage
         Element parent = element.Parent;
         while (parent != null)
         {
-            if (parent is Frame frame) 
+            if (parent is Frame frame)
                 return frame;
 
             parent = parent.Parent;
@@ -56,7 +56,7 @@ public partial class MainPage : ContentPage
 
 
     private void Navigate(object sender, EventArgs e)
-	{
+    {
         bool filled = true;
         Button clickedBtn = (Button)sender;
 
@@ -78,7 +78,7 @@ public partial class MainPage : ContentPage
             else
             {
                 string selectedImageSource = "RacingGame2.Resources.Images." + ((Image)selectedFrame.Content).Source.ToString().Substring(6);
-                
+
                 Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
                 Application.Current.MainPage = new GamePage(player);
             }
