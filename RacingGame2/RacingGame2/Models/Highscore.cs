@@ -19,11 +19,9 @@ namespace RacingGame2
 
 		public override string ToString()
 		{
-			string formattedScore = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
+			string formattedScore = string.Format("{0:D2}m:{1:D2}s",
 						this.score.Minutes,
-						this.score.Seconds,
-						this.score.Milliseconds);
-
+						this.score.Seconds);
 			return this.player.name + " : " + formattedScore;
 		}
 

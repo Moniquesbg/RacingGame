@@ -3,16 +3,18 @@ using SharpHook.Native;
 using SharpHook;
 using SharpHook.Reactive;
 using System.Diagnostics;
+using System.Timers;
 
 namespace RacingGame2;
 
 public partial class GamePage : ContentPage
-{
-    private float aspect = 1.5f;
-    private int screenWidth, screenHeight = 750;
-    private GraphicsView gv;
-    private GameDrawable gd;
-    private float playerSpeed = 20;
+{ 
+	private float aspect = 1.5f;
+	private int screenWidth, screenHeight = 750;
+	private GraphicsView gv;
+	private GameDrawable gd;
+	private float playerSpeed = 20;
+    private System.Timers.Timer scoreTimer;
 
     TimeSpan periodTimeSpan = TimeSpan.FromMilliseconds(100);
 
@@ -37,15 +39,21 @@ public partial class GamePage : ContentPage
         gv.Drawable = gd;
         Content = gv;
 
-        var timer = Application.Current.Dispatcher.CreateTimer();
-        timer.Interval = periodTimeSpan;
-        timer.Tick += (s, e) => MoveCar();
-        timer.Start();
-
-        var scoreTimer = Application.Current.Dispatcher.CreateTimer();
-        scoreTimer.Interval = TimeSpan.FromMilliseconds(1);
-        scoreTimer.Tick += (s, e) => gd.IncreaseScore(10);
+        scoreTimer = new System.Timers.Timer();
+        scoreTimer.Interval = 1000;
+        scoreTimer.Elapsed += TimerElapsed;
         scoreTimer.Start();
+
+        var carTimer = Application.Current.Dispatcher.CreateTimer();
+        carTimer.Interval = periodTimeSpan;
+        carTimer.Tick += (s, e) => MoveCar();
+        carTimer.Start();
+    }
+
+    private void TimerElapsed(object sender, ElapsedEventArgs e)
+    {
+        
+        gd.IncreaseScore(1000);
     }
 
     protected override void OnAppearing()
