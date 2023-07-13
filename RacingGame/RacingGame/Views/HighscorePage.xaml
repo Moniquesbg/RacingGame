@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RacingGame.HighscorePage"
+             xmlns:local="clr-namespace:RacingGame"
+             Title="HighscorePage"
+             BackgroundColor="DarkGray">
+    <VerticalStackLayout>
+        <Label 
+            Text="Highscores"
+            TextColor="Black"
+            Margin="0,50,0,0"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="32"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+        <Frame x:Name="WhiteFrame"
+                       BackgroundColor="White"
+                       Margin="0,20,0,0"
+                       WidthRequest="400"
+                       HeightRequest="600"
+                       Padding="0"
+                       BorderColor="Transparent"
+                       CornerRadius="5">
+
+            <TableView Intent="Menu" Margin="50,20,20,20">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.FirstPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.SecondPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.ThirdPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.FourthPlace}}" TextColor="Black"/>
+                        <TextCell Text="{Binding Source = {x:Static local:HighscoreBoard.FifthPlace}}" TextColor="Black"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </Frame>
+        <Button
+                x:Name="BackBtn"
+                Text="Back to Menu"
+                BackgroundColor="Blue"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="120"
+                HeightRequest="50" 
+                Margin="0,20,0,0" />
+    </VerticalStackLayout>
+</ContentPage>
