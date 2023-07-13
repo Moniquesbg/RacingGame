@@ -1,4 +1,4 @@
-using RacingGame2.Drawables;
+﻿using RacingGame2.Drawables;
 using SharpHook.Native;
 using SharpHook;
 using SharpHook.Reactive;
