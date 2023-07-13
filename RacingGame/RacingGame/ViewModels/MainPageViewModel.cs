@@ -57,32 +57,30 @@ public partial class MainPage : ContentPage
 
     private void Navigate(object sender, EventArgs e)
     {
-        bool filled = true;
         Button clickedBtn = (Button)sender;
 
-        if (clickedBtn == HighscoreBtn)
+        switch (clickedBtn.Text)
         {
-            Application.Current.MainPage = new HighscorePage();
-        }
-        else if (clickedBtn == AboutBtn)
-        {
-            Application.Current.MainPage = new AboutPage();
-        }
-        else if (clickedBtn == Startbtn)
-        {
-            if (string.IsNullOrWhiteSpace(entry.Text))
-            {
-                filled = false;
-                Errormessage.Text = "Please fill in a name";
-            }
-            else
-            {
-                string selectedImageSource = "RacingGame.Resources.Images.red_car.png";
-                //string selectedImageSource = "RacingGame.Resources.Images." + ((Image)selectedFrame.Content).Source.ToString().Substring(6);
-
-                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
-                Application.Current.MainPage = new GamePage(player);
-            }
+            case "Highscores":
+                Application.Current.MainPage = new HighscorePage();
+                break;
+            case "About":
+                Application.Current.MainPage = new AboutPage();
+                break;
+            case "Start!":
+                if (string.IsNullOrWhiteSpace(entry.Text))
+                {
+                    Errormessage.Text = "Please fill in a name";
+                }
+                else
+                {
+                    string selectedImageSource = "RacingGame.Resources.Images." + ((Image)selectedFrame.Content).Source.ToString().Substring(6);
+                    Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
+                    Application.Current.MainPage = new GamePage(player);
+                }
+                break;
+            default:
+                break;
         }
     }
 }
