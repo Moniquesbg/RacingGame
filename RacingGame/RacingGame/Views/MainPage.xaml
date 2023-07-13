@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RacingGame.MainPage"
+             BackgroundColor="DarkGray">
+
+    <ScrollView>
+        <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+            <Label
+            Text="Racing game!"
+            TextColor="Black"
+            FontSize="32"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+            <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360" />
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="entry"
+                Placeholder="Player name"
+                PlaceholderColor="Black"
+                BackgroundColor="White" 
+                TextColor="Black"
+                HorizontalOptions="FillAndExpand"
+                Grid.Column="0" />
+            </Grid>
+
+            <Label
+                x:Name="Errormessage"
+                Text=""
+                FontAttributes="Bold"
+                TextColor="Red"
+                FontSize="18"
+                HorizontalOptions="Center"
+                />
+
+            <Label
+            Text="Choose your car:"
+            TextColor="Black"
+            FontSize="18"
+            HorizontalOptions="Center" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+                <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="YellowCarFrame" BorderColor="Transparent">
+                    <Image x:Name="YellowCarImage"
+               Source="yellow_car.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               WidthRequest="120">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+
+                <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="RedCarFrame" BorderColor="Transparent">
+                    <Image x:Name="RedCarImage"
+               Source="red_car.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               WidthRequest="120">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+
+                <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="WhiteCarFrame" BorderColor="Transparent">
+                    <Image x:Name="WhiteCarImage"
+               Source="white_car.png"
+               Aspect="AspectFit"
+               HeightRequest="200"
+               WidthRequest="120">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+            </HorizontalStackLayout>
+
+
+            <Button
+                x:Name="Startbtn"
+                Text="Start!"
+                BackgroundColor="Red"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="100"
+                HeightRequest="50" 
+                Margin="0,20,0,0" />
+            <Button
+                x:Name="HighscoreBtn"
+                Text="Highscores"
+                BackgroundColor="Green"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="100"
+                HeightRequest="50"  />
+            <Button 
+                x:Name="AboutBtn"
+                Text="About"
+                BackgroundColor="Blue"
+                TextColor="White"
+                Clicked="Navigate"
+                HorizontalOptions="Center"
+                WidthRequest="100"
+                HeightRequest="50"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
