@@ -48,7 +48,7 @@
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
                 <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="YellowCarFrame" BorderColor="Transparent">
                     <Image x:Name="YellowCarImage"
-               Source="yellow_car.png"
+               Source="yellow_car_maui.png"
                Aspect="AspectFit"
                HeightRequest="200"
                WidthRequest="120">
@@ -60,7 +60,7 @@
 
                 <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="RedCarFrame" BorderColor="Transparent">
                     <Image x:Name="RedCarImage"
-               Source="red_car.png"
+               Source="red_car_maui.png"
                Aspect="AspectFit"
                HeightRequest="200"
                WidthRequest="120">
@@ -72,7 +72,7 @@
 
                 <Frame Padding="0" BackgroundColor="Transparent" HasShadow="False" x:Name="WhiteCarFrame" BorderColor="Transparent">
                     <Image x:Name="WhiteCarImage"
-               Source="white_car.png"
+               Source="white_car_maui.png"
                Aspect="AspectFit"
                HeightRequest="200"
                WidthRequest="120">

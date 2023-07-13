@@ -13,7 +13,6 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-
     }
 
     private void OnImageTapped(object sender, EventArgs e)
@@ -53,8 +52,6 @@ public partial class MainPage : ContentPage
         return null;
     }
 
-
-
     private void Navigate(object sender, EventArgs e)
     {
         Button clickedBtn = (Button)sender;
@@ -68,15 +65,45 @@ public partial class MainPage : ContentPage
                 Application.Current.MainPage = new AboutPage();
                 break;
             case "Start!":
-                if (string.IsNullOrWhiteSpace(entry.Text))
+                if (!(string.IsNullOrWhiteSpace(entry.Text)))
                 {
-                    Errormessage.Text = "Please fill in a name";
+                    if (selectedFrame != null)
+                    {
+                        string selectedImage = ((Image)selectedFrame.Content)?.Source?.ToString()?.Substring(6);
+                        if (!string.IsNullOrEmpty(selectedImage))
+                        {
+                            if (selectedImage == "red_car_maui.png")
+                            {
+                                string selectedImageSource = "RacingGame.Resources.Images.red_car.png";
+                                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
+                                Application.Current.MainPage = new GamePage(player);
+                            }
+                            else if (selectedImage == "yellow_car_maui.png")
+                            {
+                                string selectedImageSource = "RacingGame.Resources.Images.yellow_car.png";
+                                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
+                                Application.Current.MainPage = new GamePage(player);
+                            }
+                            else if (selectedImage == "white_car_maui.png")
+                            {
+                                string selectedImageSource = "RacingGame.Resources.Images.white_car.png";
+                                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
+                                Application.Current.MainPage = new GamePage(player);
+                            }
+                        }
+                        else
+                        {
+                            Errormessage.Text = "Please select a car";
+                        }
+                    }
+                    else
+                    {
+                        Errormessage.Text = "Please select a car";
+                    }
                 }
                 else
                 {
-                    string selectedImageSource = "RacingGame.Resources.Images." + ((Image)selectedFrame.Content).Source.ToString().Substring(6);
-                    Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
-                    Application.Current.MainPage = new GamePage(player);
+                    Errormessage.Text = "Please fill in a name";
                 }
                 break;
             default:
