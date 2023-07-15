@@ -61,6 +61,9 @@
 	  <None Remove="Resources\Images\Npc_cars\rusteze.png" />
 	  <None Remove="Resources\Images\Npc_cars\white_car.png" />
 	  <None Remove="Resources\Images\Npc_cars\yellow_car.png" />
+	  <None Remove="Resources\Images\red_car_maui.png" />
+	  <None Remove="Resources\Images\white_car_maui.png" />
+	  <None Remove="Resources\Images\yellow_car.png" />
 	</ItemGroup>
 
 	<ItemGroup>
