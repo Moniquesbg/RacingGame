@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\RacingGame",
+    "\\RacingGame2"
   ],
-  "SelectedNode": "\\RacingGame2.sln",
+  "SelectedNode": "\\RacingGame\\RacingGame.sln",
   "PreviewInSolutionExplorer": false
 }
