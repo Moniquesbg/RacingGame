@@ -15,7 +15,7 @@ public partial class GameOverPage : ContentPage
 
 	private void HighscoreButton(object sender, EventArgs e)
 	{
-		Application.Current.MainPage = new HighscorePage();
+		Application.Current.MainPage = new HighscorePage(playerName);
 	}
 
 	private void MainMenuButton(object sender, EventArgs e)

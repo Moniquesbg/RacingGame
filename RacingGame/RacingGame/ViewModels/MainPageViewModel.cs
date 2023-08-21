@@ -9,6 +9,7 @@ namespace RacingGame;
 public partial class MainPage : ContentPage
 {
     private Frame selectedFrame;
+    private string playerName;
 
     public MainPage()
     {
@@ -19,6 +20,8 @@ public partial class MainPage : ContentPage
     public MainPage(string playerName)
     {
         InitializeComponent();
+
+        this.playerName = playerName;
 
         fillPlayerName(playerName);
     }
@@ -76,10 +79,10 @@ public partial class MainPage : ContentPage
         switch (clickedBtn.Text)
         {
             case "Highscores":
-                Application.Current.MainPage = new HighscorePage();
+                Application.Current.MainPage = new HighscorePage(playerName);
                 break;
             case "About":
-                Application.Current.MainPage = new AboutPage();
+                Application.Current.MainPage = new AboutPage(playerName);
                 break;
             case "Start!":
                 if (!(string.IsNullOrWhiteSpace(entry.Text)))

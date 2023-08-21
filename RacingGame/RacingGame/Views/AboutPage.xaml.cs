@@ -7,19 +7,17 @@ namespace RacingGame;
 
 public partial class AboutPage : ContentPage
 {
-    private GraphicsView gv;
+    private string playerName;
 
-    public AboutPage()
+    public AboutPage(string playerName)
 	{
         InitializeComponent();
+        this.playerName = playerName;
     }
 
-    protected override void OnAppearing()
-    {
 
-    }
     private void Navigate(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new MainPage();
+        Application.Current.MainPage = new MainPage(playerName);
     }
 }
