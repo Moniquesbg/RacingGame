@@ -59,7 +59,7 @@
                 if (overlap)
                 {
                     HighscoreBoard.AddScore(player, TimeSpan.FromMilliseconds(score));
-                    Application.Current.MainPage = new GameOverPage(player);
+                    Application.Current.MainPage = new GameOverPage(player, player.Name);
                 }
             }
 

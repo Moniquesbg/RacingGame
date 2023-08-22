@@ -16,7 +16,7 @@ public partial class GamePage : ContentPage
 
     TimeSpan periodTimeSpan = TimeSpan.FromMilliseconds(100);
 
-    public GamePage(Player player)
+    public GamePage(Player player, string playerName)
     {
         InitializeComponent();
 

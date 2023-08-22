@@ -9,10 +9,30 @@ namespace RacingGame;
 public partial class MainPage : ContentPage
 {
     private Frame selectedFrame;
+    private string playerName;
 
     public MainPage()
     {
         InitializeComponent();
+    }
+
+    //constructor with playername
+    public MainPage(string playerName)
+    {
+        InitializeComponent();
+
+        this.playerName = playerName;
+
+        fillPlayerName(playerName);
+    }
+
+    //fills the playersname after losing, so the player doesnt have to refill his playername
+    public void fillPlayerName(string playername)
+    {
+        if(playername != "")
+        {
+            entry.Text = playername;
+        }
     }
 
     private void OnImageTapped(object sender, EventArgs e)
@@ -59,10 +79,10 @@ public partial class MainPage : ContentPage
         switch (clickedBtn.Text)
         {
             case "Highscores":
-                Application.Current.MainPage = new HighscorePage();
+                Application.Current.MainPage = new HighscorePage(playerName);
                 break;
             case "About":
-                Application.Current.MainPage = new AboutPage();
+                Application.Current.MainPage = new AboutPage(playerName);
                 break;
             case "Start!":
                 if (!(string.IsNullOrWhiteSpace(entry.Text)))
@@ -72,23 +92,25 @@ public partial class MainPage : ContentPage
                         string selectedImage = ((Image)selectedFrame.Content)?.Source?.ToString()?.Substring(6);
                         if (!string.IsNullOrEmpty(selectedImage))
                         {
+                            string playerName = entry.Text;
+
                             if (selectedImage == "red_car_maui.png")
                             {
                                 string selectedImageSource = "RacingGame.Resources.Images.red_car.png";
-                                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
-                                Application.Current.MainPage = new GamePage(player);
+                                Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
+                                Application.Current.MainPage = new GamePage(player, playerName);
                             }
                             else if (selectedImage == "yellow_car_maui.png")
                             {
                                 string selectedImageSource = "RacingGame.Resources.Images.yellow_car.png";
-                                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
-                                Application.Current.MainPage = new GamePage(player);
+                                Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
+                                Application.Current.MainPage = new GamePage(player, playerName);
                             }
                             else if (selectedImage == "white_car_maui.png")
                             {
                                 string selectedImageSource = "RacingGame.Resources.Images.white_car.png";
-                                Player player = new Player(entry.Text, new Car(0, 0, selectedImageSource));
-                                Application.Current.MainPage = new GamePage(player);
+                                Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
+                                Application.Current.MainPage = new GamePage(player, playerName);
                             }
                         }
                         else
