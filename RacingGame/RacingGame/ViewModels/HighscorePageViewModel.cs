@@ -4,7 +4,7 @@ namespace RacingGame;
 
 public partial class HighscorePage : ContentPage
 {
-    private string playerName;
+    private Player player;
 
     //constructor without playername
     public HighscorePage()
@@ -12,14 +12,14 @@ public partial class HighscorePage : ContentPage
         this.InitializeComponent();
     }
     //constructor with playername
-    public HighscorePage(string playerName)
+    public HighscorePage(Player player)
     {
         this.InitializeComponent();
-        this.playerName = playerName;
+        this.player = player;
     }
 
     private void Navigate(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new MainPage(playerName);
+        Application.Current.MainPage = new MainPage(player);
     }
 }

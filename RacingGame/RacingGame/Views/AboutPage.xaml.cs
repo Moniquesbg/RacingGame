@@ -7,17 +7,17 @@ namespace RacingGame;
 
 public partial class AboutPage : ContentPage
 {
-    private string playerName;
+    private Player player;
 
-    public AboutPage(string playerName)
+    public AboutPage(Player player)
 	{
         InitializeComponent();
-        this.playerName = playerName;
+        this.player = player;
     }
 
 
     private void Navigate(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new MainPage(playerName);
+        Application.Current.MainPage = new MainPage(player);
     }
 }
