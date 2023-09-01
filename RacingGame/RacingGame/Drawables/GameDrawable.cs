@@ -5,8 +5,8 @@ namespace RacingGame.Drawables
     internal class GameDrawable : IDrawable
     {
 
-        private int carCount = 4;
-        private float randomizer = 800;
+        private const int carCount = 4;
+        private const float randomizer = 800;
         private int score = 0;
         private Player player;
         private Random rand = new Random();
