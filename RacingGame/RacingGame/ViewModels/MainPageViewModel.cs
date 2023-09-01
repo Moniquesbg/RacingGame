@@ -16,7 +16,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    //constructor with playername
+    // Constructor with playername
     public MainPage(Player player)
     {
         InitializeComponent();
@@ -26,7 +26,7 @@ public partial class MainPage : ContentPage
         fillPlayerName(player.name);
     }
 
-    //fills the playersname after losing, so the player doesnt have to refill his playername
+    // Refills the playername after losing, so the player doesn't have to fill it back in again
     public void fillPlayerName(string playername)
     {
         if(playername != "")
@@ -42,17 +42,17 @@ public partial class MainPage : ContentPage
 
         if (selectedFrame != null)
         {
-            //Deselecteert de vorige geselecteerde frame
+            // Deselects the last selected frame
             selectedFrame.BorderColor = Color.FromArgb("#00000000");
         }
         if (selectedFrame == tappedFrame)
         {
-            // Als de geselecteerde rechthoek al geselecteerd is, dan clear
+            // If the selected frame already has been selected, clear it
             selectedFrame = null;
         }
         else
         {
-            // De geselecteerde frame
+            // The selected frame
             tappedFrame.BorderColor = Color.FromArgb("#000000");
             selectedFrame = tappedFrame;
         }
@@ -76,6 +76,7 @@ public partial class MainPage : ContentPage
     {
         Button clickedBtn = (Button)sender;
 
+        // Check which page to navigate to based on the text of the buttons in the menu
         switch (clickedBtn.Text)
         {
             case "Highscores":
@@ -85,37 +86,31 @@ public partial class MainPage : ContentPage
                 Application.Current.MainPage = new AboutPage(player);
                 break;
             case "Start!":
+                // Check if the playername is empty
                 if (!(string.IsNullOrWhiteSpace(entry.Text)))
                 {
                     if (selectedFrame != null)
                     {
                         string selectedImage = ((Image)selectedFrame.Content)?.Source?.ToString()?.Substring(6);
-                        if (!string.IsNullOrEmpty(selectedImage))
-                        {
-                            string playerName = entry.Text;
+                        string playerName = entry.Text;
 
-                            if (selectedImage == "red_car_maui.png")
-                            {
-                                string selectedImageSource = "RacingGame.Resources.Images.red_car.png";
-                                Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
-                                Application.Current.MainPage = new GamePage(player, playerName);
-                            }
-                            else if (selectedImage == "yellow_car_maui.png")
-                            {
-                                string selectedImageSource = "RacingGame.Resources.Images.yellow_car.png";
-                                Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
-                                Application.Current.MainPage = new GamePage(player, playerName);
-                            }
-                            else if (selectedImage == "white_car_maui.png")
-                            {
-                                string selectedImageSource = "RacingGame.Resources.Images.white_car.png";
-                                Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
-                                Application.Current.MainPage = new GamePage(player, playerName);
-                            }
-                        }
-                        else
+                        if (selectedImage == "red_car_maui.png")
                         {
-                            Errormessage.Text = "Please select a car";
+                            string selectedImageSource = "RacingGame.Resources.Images.red_car.png";
+                            Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
+                            Application.Current.MainPage = new GamePage(player, playerName);
+                        }
+                        else if (selectedImage == "yellow_car_maui.png")
+                        {
+                            string selectedImageSource = "RacingGame.Resources.Images.yellow_car.png";
+                            Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
+                            Application.Current.MainPage = new GamePage(player, playerName);
+                        }
+                        else if (selectedImage == "white_car_maui.png")
+                        {
+                            string selectedImageSource = "RacingGame.Resources.Images.white_car.png";
+                            Player player = new Player(playerName, new Car(0, 0, selectedImageSource));
+                            Application.Current.MainPage = new GamePage(player, playerName);
                         }
                     }
                     else
@@ -125,7 +120,7 @@ public partial class MainPage : ContentPage
                 }
                 else
                 {
-                    Errormessage.Text = "Please fill in a name";
+                    Errormessage.Text = "Please fill in a username";
                 }
                 break;
             default:

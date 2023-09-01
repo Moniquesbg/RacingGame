@@ -87,7 +87,7 @@
             <Button
                 x:Name="Startbtn"
                 Text="Start!"
-                BackgroundColor="Red"
+                BackgroundColor="Green"
                 TextColor="White"
                 Clicked="Navigate"
                 HorizontalOptions="Center"
@@ -97,7 +97,7 @@
             <Button
                 x:Name="HighscoreBtn"
                 Text="Highscores"
-                BackgroundColor="Green"
+                BackgroundColor="Red"
                 TextColor="White"
                 Clicked="Navigate"
                 HorizontalOptions="Center"
