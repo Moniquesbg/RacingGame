@@ -11,8 +11,8 @@ public partial class GamePage : ContentPage
 { 
 	private float aspect = 1.5f;
 	private int screenWidth, screenHeight = 750;
-	private GraphicsView gv;
-	private GameDrawable gd;
+	private GraphicsView graphicsView;
+	private GameDrawable gameDrawable;
 	private float playerSpeed = 20;
     private System.Timers.Timer scoreTimer;
 
@@ -28,16 +28,16 @@ public partial class GamePage : ContentPage
 
         screenWidth = (int)(screenHeight / aspect);
 
-        gv = new GraphicsView();
+        graphicsView = new GraphicsView();
 
-        gv.VerticalOptions = LayoutOptions.Start;
-        gv.HorizontalOptions = LayoutOptions.Start;
-        gv.WidthRequest = screenWidth;
-        gv.HeightRequest = screenHeight;
+        graphicsView.VerticalOptions = LayoutOptions.Start;
+        graphicsView.HorizontalOptions = LayoutOptions.Start;
+        graphicsView.WidthRequest = screenWidth;
+        graphicsView.HeightRequest = screenHeight;
 
-        gd = new GameDrawable(player, screenWidth, (screenWidth / 4f) * 1.5f, screenHeight - 100);
-        gv.Drawable = gd;
-        Content = gv;
+        gameDrawable = new GameDrawable(player, screenWidth, (screenWidth / 4f) * 1.5f, screenHeight - 100);
+        graphicsView.Drawable = gameDrawable;
+        Content = graphicsView;
 
         scoreTimer = new System.Timers.Timer();
         scoreTimer.Interval = 1000;
@@ -52,8 +52,7 @@ public partial class GamePage : ContentPage
 
     private void TimerElapsed(object sender, ElapsedEventArgs e)
     {
-        
-        gd.IncreaseScore(1000);
+        gameDrawable.IncreaseScore(1000);
     }
 
     protected override void OnAppearing()
@@ -69,27 +68,26 @@ public partial class GamePage : ContentPage
 
     void MovePlayer(float x, float y)
     {
-        float hw = gd.pd.player.car.w / 2;
-        float hh = gd.pd.player.car.h / 2;
+        float halfWidth = gameDrawable.playerDrawable.player.car.w / 2;
+        float halfHeight = gameDrawable.playerDrawable.player.car.h / 2;
 
-        double newPlayerX = gd.GetPlayerPosition().X + x;
-        double newPlayerY = gd.GetPlayerPosition().Y + y;
+        double newPlayerX = gameDrawable.GetPlayerPosition().X + x;
+        double newPlayerY = gameDrawable.GetPlayerPosition().Y + y;
 
-        if (newPlayerX > hw && newPlayerX < screenWidth - hw &&
-            newPlayerY > hh && newPlayerY < screenHeight - hh)
+        if (newPlayerX > halfWidth && newPlayerX < screenWidth - halfWidth &&
+            newPlayerY > halfHeight && newPlayerY < screenHeight - halfHeight)
         {
-            gd.UpdatePosition(x, y);
-            gv.Invalidate();
+            gameDrawable.UpdatePosition(x, y);
+            graphicsView.Invalidate();
         }
     }
 
-
     void MoveCar()
     {
-        gd.UpdateCarPosition(0, 30, screenWidth, screenHeight);
+        gameDrawable.UpdateCarPosition(0, 30, screenWidth, screenHeight);
         try
         {
-            gv.Invalidate();
+            graphicsView.Invalidate();
         }
         catch { }
     }
