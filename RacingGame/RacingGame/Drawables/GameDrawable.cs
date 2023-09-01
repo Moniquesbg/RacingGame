@@ -4,8 +4,6 @@ namespace RacingGame.Drawables
 {
     internal class GameDrawable : IDrawable
     {
-        public PlayerDrawable pd { get; private set; }
-        public CarDrawable[] cars { get; private set; }
 
         private int carCount = 4;
         private float randomizer = 800;
@@ -13,10 +11,13 @@ namespace RacingGame.Drawables
         private Player player;
         private Random rand = new Random();
 
+        public PlayerDrawable playerDrawable { get; private set; }
+        public CarDrawable[] cars { get; private set; }
+
         public GameDrawable(Player player, int screenw, float playerX, float playerY)
         {
             this.player = player;
-            pd = new PlayerDrawable(player, playerX, playerY);
+            playerDrawable = new PlayerDrawable(player, playerX, playerY);
             cars = new CarDrawable[carCount];
             Random rand = new Random();
 
@@ -69,13 +70,13 @@ namespace RacingGame.Drawables
             canvas.FontSize = 20;
             canvas.FontColor = Color.FromArgb("#ffffff");
 
-            TimeSpan t = TimeSpan.FromMilliseconds(score);
+            TimeSpan time = TimeSpan.FromMilliseconds(score);
             string formattedScore = string.Format("{0:D2}m:{1:D2}s",
-                        t.Minutes,
-                        t.Seconds);
+                        time.Minutes,
+                        time.Seconds);
             canvas.DrawString("Score: " + formattedScore, 20, 20, HorizontalAlignment.Left);
 
-            pd.Draw(canvas);
+            playerDrawable.Draw(canvas);
         }
 
         public void IncreaseScore(int amount)
@@ -90,7 +91,7 @@ namespace RacingGame.Drawables
 
         public void UpdatePosition(float x, float y)
         {
-            pd = new PlayerDrawable(player, player.car.x + x, player.car.y + y);
+            playerDrawable = new PlayerDrawable(player, player.car.x + x, player.car.y + y);
         }
 
         public void UpdateCarPosition(float x, float y, int screenW, int screenH)
