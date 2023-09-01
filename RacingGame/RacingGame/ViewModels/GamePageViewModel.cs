@@ -9,11 +9,11 @@ namespace RacingGame;
 
 public partial class GamePage : ContentPage
 { 
-	private float aspect = 1.5f;
-	private int screenWidth, screenHeight = 750;
+	private const float aspect = 1.5f;
+	private static int screenWidth, screenHeight = 750;
 	private GraphicsView graphicsView;
 	private GameDrawable gameDrawable;
-	private float playerSpeed = 20;
+	private const float playerSpeed = 20;
     private System.Timers.Timer scoreTimer;
 
     TimeSpan periodTimeSpan = TimeSpan.FromMilliseconds(100);

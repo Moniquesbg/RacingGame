@@ -1,12 +1,15 @@
-﻿namespace RacingGame.Drawables
+﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+
+namespace RacingGame.Drawables
 {
     internal class GameDrawable : IDrawable
     {
 
-        private int carCount = 6;
-        private float randomizer = 800;
+        private const int carCount = 4;
+        private const float randomizer = 800;
         private int score = 0;
         private Player player;
+        private Random rand = new Random();
 
         public PlayerDrawable playerDrawable { get; private set; }
         public CarDrawable[] cars { get; private set; }
@@ -91,8 +94,11 @@
             playerDrawable = new PlayerDrawable(player, player.car.x + x, player.car.y + y);
         }
 
-        public void UpdateCarPosition(float x, float y, int screenw, int screenH)
+        public void UpdateCarPosition(float x, float y, int screenW, int screenH)
         {
+            List<int> freeLanes = new List<int> { 0, 1, 2, 3 };
+            List<int> occupiedLanes = new List<int>();
+
             if (cars.Length > 0)
             {
                 for (int i = 0; i < cars.Length; i++)
@@ -100,20 +106,49 @@
                     CarDrawable carD = cars[i];
                     Car car = carD.car;
 
-                    if (car.y - car.h + y < screenH)
+                    // Move the bot car down the screen
+                    car.y += y;
+
+                    // Check if the bot car has reached the bottom of the screen
+                    if (car.y - car.h > screenH)
                     {
-                        cars[i] = new CarDrawable(car.x + x, car.y + y, car.imageSource);
+                        // Remove the lane from occupiedLanes and add it back to the freeLanes
+                        int lane = (int)(car.x / (screenW / 4f));
+                        occupiedLanes.Remove(lane);
+                        freeLanes.Add(lane);
+
+                        // Pick a new lane at random
+                        int newLane = rand.Next(0, 4);
+                        while (occupiedLanes.Contains(newLane))
+                        {
+                            newLane = rand.Next(0, 4);
+                        }
+
+                        // Mark the new lane as occupied
+                        occupiedLanes.Add(newLane);
+                        freeLanes.Remove(newLane);
+
+                        // Set the new position of the car and spawn it in
+                        float newX = newLane * (screenW / 4f) + (screenW / 8f);
+                        float newY = -rand.Next(0, screenH);
+
+                        cars[i] = new CarDrawable(newX, newY);
                     }
                     else
                     {
-                        Random rand = new Random();
-                        float randX = rand.Next(0, 4) * (screenw / 4f) + (screenw / 8f);
+                        // Check which lane the car is in
+                        int lane = (int)(car.x / (screenW / 4f));
 
-                        float randY = rand.Next(0, screenH);
-                        y = (float)Math.Round(y / 400);
-                        y *= 200;
-
-                        cars[i] = new CarDrawable(randX, -randY);
+                        // Check if the lane of the car already is in occupiedLanes
+                        if (occupiedLanes.Contains(lane))
+                        {
+                         
+                        }
+                        else
+                        {
+                            // Mark the lane as occupied
+                            occupiedLanes.Add(lane);
+                        }
                     }
                 }
             }
